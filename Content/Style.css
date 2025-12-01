@@ -1,0 +1,363 @@
+/* --- 1. KHAI BÁO FONT NUNITO --- */
+
+/* Khai báo cho kiểu chữ THƯỜNG (Normal/Regular) */
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/static/Nunito-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Khai báo cho kiểu chữ ĐẬM (Bold) */
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/static/Nunito-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* --- 2. KHAI BÁO FONT MONTSERRAT --- */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #27ae60; /* Xanh lá cây chủ đạo */
+    --secondary-color: #2c3e50; /* Xanh than đậm */
+    --accent-color: #e67e22; /* Cam tạo điểm nhấn */
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--primary-color);
+    }
+
+.icon-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.7rem;
+}
+
+/* --- HERO SLIDER --- */
+.carousel-item {
+    height: 60vh;
+    min-height: 360px;
+    max-height: 700px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    bottom: 20%;
+}
+
+    .carousel-caption h5 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .carousel-item {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .carousel-caption {
+        bottom: 15%;
+        padding: 1rem;
+    }
+
+        .carousel-caption h5 {
+            font-size: 1.8rem;
+        }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 38vh;
+        min-height: 200px;
+    }
+
+    .carousel-caption {
+        bottom: 8%;
+        padding: 0.75rem;
+    }
+
+        .carousel-caption h5 {
+            font-size: 1.2rem;
+        }
+}
+
+.btn-add {
+    /* Màu nền xanh lá chủ đạo (giống giá tiền) */
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    color: white !important; /* Chữ màu trắng */
+    /* Hình dáng */
+    border: none;
+    border-radius: 30px; /* Bo tròn kiểu viên thuốc */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    width: 100%; /* Chiều rộng full khung */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; /* Bỏ gạch chân nếu là thẻ a */
+    /* Font chữ */
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase; /* Chữ in hoa cho mạnh mẽ */
+    letter-spacing: 0.5px; /* Giãn cách chữ một chút */
+    /* Hiệu ứng mượt mà */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(39, 174, 96, 0.2); /* Đổ bóng nhẹ màu xanh */
+}
+
+    /* 2. Định dạng khi di chuột vào (Hover) */
+    .btn-add:hover {
+        /* Đổi hướng gradient hoặc làm tối màu đi chút */
+        background: linear-gradient(45deg, #219150, #27ae60);
+        color: white !important;
+        /* Hiệu ứng nổi lên */
+        transform: translateY(-3px); /* Nút bay lên nhẹ */
+        box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3); /* Bóng đổ sâu hơn */
+    }
+
+    /* 3. Hiệu ứng cho icon cái xe đẩy bên trong */
+    .btn-add i {
+        margin-right: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Khi di chuột vào nút thì icon sẽ lắc nhẹ */
+    .btn-add:hover i {
+        transform: rotate(-10deg) scale(1.1);
+    }
+
+
+/* --- CATEGORY CARDS --- */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 300px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+    .category-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .category-card:hover img {
+        transform: scale(1.1);
+    }
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+}
+
+/* --- PRODUCT CARDS --- */
+.product-card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s;
+    background: #fff;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+.product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+    .product-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.badge-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.product-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+    .product-title a {
+        text-decoration: none;
+        color: var(--secondary-color);
+    }
+
+.product-price {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+/* --- FEATURES --- */
+.feature-box {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+    .feature-box:hover {
+        transform: translateY(-5px);
+    }
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+    footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+/* ==================================================
+   CUSTOM NÚT "THÊM GIỎ HÀNG" (CHÍNH XÁC) 
+   ================================================== */
+/* Consolidated, well-formed rules to override Bootstrap .btn */
+a.btn.btn-add,
+button.btn.btn-add {
+ display: inline-block; /* or block if you want full-width */
+ width:100%;
+ background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+ color: #fff !important;
+ border: none !important;
+ border-radius:30px !important;
+ padding:10px20px !important;
+ text-align: center !important;
+ text-decoration: none !important;
+ font-weight:600 !important;
+ font-size:1rem !important;
+ text-transform: uppercase !important;
+ letter-spacing:0.5px !important;
+ transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+ box-shadow:04px6px rgba(39,174,96,0.2) !important;
+}
+
+/* Hover state */
+a.btn.btn-add:hover,
+button.btn.btn-add:hover {
+ background: linear-gradient(45deg, #219150, #27ae60) !important;
+ color: #fff !important;
+ transform: translateY(-3px) !important;
+ box-shadow:06px12px rgba(39,174,96,0.3) !important;
+}
+
+/* Icon inside */
+a.btn.btn-add i,
+button.btn.btn-add i {
+ margin-right:8px;
+ transition: transform .3s ease;
+}
+
+/* Icon hover effect */
+a.btn.btn-add:hover i,
+button.btn.btn-add:hover i {
+ transform: rotate(-10deg) scale(1.1);
+}

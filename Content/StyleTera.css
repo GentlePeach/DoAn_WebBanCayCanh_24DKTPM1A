@@ -1,0 +1,374 @@
+/* =========================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================= */
+:root {
+    --primary-color: #27ae60;   /* Xanh lá cây chủ đạo */
+    --secondary-color: #2c3e50; /* Xanh than đậm */
+    --accent-color: #e67e22;    /* Cam tạo điểm nhấn */
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.icon-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.7rem;
+}
+
+/* =========================================
+   3. HERO SLIDER (Trang chủ)
+   ========================================= */
+.carousel-item {
+    height: 60vh;
+    min-height: 360px;
+    max-height: 700px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    bottom: 20%;
+}
+
+.carousel-caption h5 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Responsive Slider */
+@media (max-width: 992px) {
+    .carousel-item { height: 50vh; min-height: 300px; }
+    .carousel-caption { bottom: 15%; padding: 1rem; }
+    .carousel-caption h5 { font-size: 1.8rem; }
+}
+@media (max-width: 576px) {
+    .carousel-item { height: 38vh; min-height: 200px; }
+    .carousel-caption { bottom: 8%; padding: 0.75rem; }
+    .carousel-caption h5 { font-size: 1.2rem; }
+}
+
+.btn-main {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-main:hover {
+    background-color: transparent;
+    color: white;
+}
+
+/* =========================================
+   4. CATEGORY CARDS
+   ========================================= */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 300px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+}
+
+/* =========================================
+   5. PRODUCT CARDS (Thống nhất Style đẹp nhất)
+   ========================================= */
+.product-card {
+    border: none; /* Hoặc dùng border: 1px solid #eee nếu muốn có viền nhẹ */
+    border-radius: 15px;
+    transition: all 0.3s;
+    background: #fff;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.product-img-wrap img, 
+.product-img { /* Hỗ trợ cả class cũ nếu lỡ dùng */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.product-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.product-title a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.product-price, .price {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+/* Nút thêm vào giỏ (Style thống nhất) */
+.btn-add-cart, .btn-add {
+    background-color: var(--secondary-color);
+    color: white;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    border: none;
+    display: block; /* Đảm bảo nút hiển thị tốt */
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-add-cart:hover, .btn-add:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* =========================================
+   6. SHOP SIDEBAR & LAYOUT (Từ file Shop)
+   ========================================= */
+.sidebar-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.list-group-item {
+    border: none;
+    padding: 8px 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.list-group-item:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.list-group-item.active {
+    background: none;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--secondary-color);
+}
+
+/* =========================================
+   7. FEATURES SECTION
+   ========================================= */
+.feature-box {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+    footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+
+.pagination-wrapper ul,
+.pagination-container ul,
+.pagination {
+    display: inline-flex !important; /* Dàn ngang */
+    padding-left: 0 !important;
+    list-style: none !important; /* Bỏ dấu chấm */
+    gap: 8px !important;
+    margin-top: 30px !important;
+    justify-content: center !important;
+}
+
+    /* Style cho các nút số (Thẻ a và thẻ span) */
+    .pagination-wrapper li a, .pagination-wrapper li span,
+    .pagination-container li a, .pagination-container li span,
+    .pagination li a, .pagination li span {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 40px !important;
+        height: 40px !important;
+        padding: 0 5px !important;
+        color: #333 !important;
+        background-color: #fff !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+
+        /* Hover Effect */
+        .pagination-wrapper li a:hover,
+        .pagination-container li a:hover {
+            color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+            background-color: #f0f9f4 !important;
+            transform: translateY(-2px);
+        }
+
+/* Active State (Trang hiện tại) */
+.pagination-wrapper li.active span,
+.pagination-container li.active span {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* Disabled State */
+.pagination-wrapper li.disabled span {
+    background-color: #f9f9f9 !important;
+    color: #ccc !important;
+}
+/* ==================================================
+   CUSTOM NÚT "THÊM GIỎ HÀNG"
+   ================================================== */
+

@@ -1,0 +1,1373 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A018695-C54F-4541-B541-1CE1FB001F7B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoAn_WebBanCayCanh_24DKTPM1A</RootNamespace>
+    <AssemblyName>DoAn_WebBanCayCanh_24DKTPM1A</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\DoAn_WebBanCayCanh_24DKTPM1A.dll" />
+    <Content Include="bin\DoAn_WebBanCayCanh_24DKTPM1A.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\PagedList.dll" />
+    <Content Include="bin\PagedList.Mvc.dll" />
+    <Content Include="bin\PagedList.Mvc.xml" />
+    <Content Include="bin\PagedList.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
+    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
+    <Content Include="bin\System.Web.Webpages.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Style.css" />
+    <Content Include="Content\StyleAbout.css" />
+    <Content Include="Content\StyleCart.css" />
+    <Content Include="Content\StyleCheckout.css" />
+    <Content Include="Content\StyleContact.css" />
+    <Content Include="Content\StyleSingle.css" />
+    <Content Include="Content\StyleTera.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\acc_1.jpg" />
+    <Content Include="images\acc_10.jpg" />
+    <Content Include="images\acc_10_1.jpg" />
+    <Content Include="images\acc_10_2.jpg" />
+    <Content Include="images\acc_10_3.jpg" />
+    <Content Include="images\acc_10_4.jpg" />
+    <Content Include="images\acc_10_5.jpg" />
+    <Content Include="images\acc_1_1.jpg" />
+    <Content Include="images\acc_1_2.jpg" />
+    <Content Include="images\acc_1_3.jpg" />
+    <Content Include="images\acc_1_4.jpg" />
+    <Content Include="images\acc_1_5.jpg" />
+    <Content Include="images\acc_2.jpg" />
+    <Content Include="images\acc_2_1.jpg" />
+    <Content Include="images\acc_2_2.jpg" />
+    <Content Include="images\acc_2_3.jpg" />
+    <Content Include="images\acc_2_4.jpg" />
+    <Content Include="images\acc_2_5.jpg" />
+    <Content Include="images\acc_3.jpg" />
+    <Content Include="images\acc_3_1.jpg" />
+    <Content Include="images\acc_3_2.jpg" />
+    <Content Include="images\acc_3_3.jpg" />
+    <Content Include="images\acc_3_4.jpg" />
+    <Content Include="images\acc_3_5.jpg" />
+    <Content Include="images\acc_4.jpg" />
+    <Content Include="images\acc_4_1.jpg" />
+    <Content Include="images\acc_4_2.jpg" />
+    <Content Include="images\acc_4_3.jpg" />
+    <Content Include="images\acc_4_4.jpg" />
+    <Content Include="images\acc_4_5.jpg" />
+    <Content Include="images\acc_5.jpg" />
+    <Content Include="images\acc_5_1.jpg" />
+    <Content Include="images\acc_5_2.jpg" />
+    <Content Include="images\acc_5_3.jpg" />
+    <Content Include="images\acc_5_4.jpg" />
+    <Content Include="images\acc_5_5.jpg" />
+    <Content Include="images\acc_6.jpg" />
+    <Content Include="images\acc_6_1.jpg" />
+    <Content Include="images\acc_6_2.jpg" />
+    <Content Include="images\acc_6_3.jpg" />
+    <Content Include="images\acc_6_4.jpg" />
+    <Content Include="images\acc_6_5.jpg" />
+    <Content Include="images\acc_7.jpg" />
+    <Content Include="images\acc_7_1.jpg" />
+    <Content Include="images\acc_7_2.jpg" />
+    <Content Include="images\acc_7_3.jpg" />
+    <Content Include="images\acc_7_4.jpg" />
+    <Content Include="images\acc_7_5.jpg" />
+    <Content Include="images\acc_8.jpg" />
+    <Content Include="images\acc_8_1.jpg" />
+    <Content Include="images\acc_8_2.jpg" />
+    <Content Include="images\acc_8_3.jpg" />
+    <Content Include="images\acc_8_4.jpg" />
+    <Content Include="images\acc_8_5.jpg" />
+    <Content Include="images\acc_9.jpg" />
+    <Content Include="images\acc_9_1.jpg" />
+    <Content Include="images\acc_9_2.jpg" />
+    <Content Include="images\acc_9_3.jpg" />
+    <Content Include="images\acc_9_4.jpg" />
+    <Content Include="images\acc_9_5.jpg" />
+    <Content Include="images\aqua_1.jpg" />
+    <Content Include="images\aqua_10.jpg" />
+    <Content Include="images\aqua_10_1.jpg" />
+    <Content Include="images\aqua_10_2.jpg" />
+    <Content Include="images\aqua_10_3.jpg" />
+    <Content Include="images\aqua_10_4.jpg" />
+    <Content Include="images\aqua_10_5.jpg" />
+    <Content Include="images\aqua_1_1.jpg" />
+    <Content Include="images\aqua_1_2.jpg" />
+    <Content Include="images\aqua_1_3.jpg" />
+    <Content Include="images\aqua_1_4.jpg" />
+    <Content Include="images\aqua_1_5.jpg" />
+    <Content Include="images\aqua_2.jpg" />
+    <Content Include="images\aqua_2_1.jpg" />
+    <Content Include="images\aqua_2_2.jpg" />
+    <Content Include="images\aqua_2_3.jpg" />
+    <Content Include="images\aqua_2_4.jpg" />
+    <Content Include="images\aqua_2_5.jpg" />
+    <Content Include="images\aqua_3.jpg" />
+    <Content Include="images\aqua_3_1.jpg" />
+    <Content Include="images\aqua_3_2.jpg" />
+    <Content Include="images\aqua_3_3.jpg" />
+    <Content Include="images\aqua_3_4.jpg" />
+    <Content Include="images\aqua_3_5.jpg" />
+    <Content Include="images\aqua_4.jpg" />
+    <Content Include="images\aqua_4_1.jpg" />
+    <Content Include="images\aqua_4_2.jpg" />
+    <Content Include="images\aqua_4_3.jpg" />
+    <Content Include="images\aqua_4_4.jpg" />
+    <Content Include="images\aqua_4_5.jpg" />
+    <Content Include="images\aqua_5.jpg" />
+    <Content Include="images\aqua_5_1.jpg" />
+    <Content Include="images\aqua_5_2.jpg" />
+    <Content Include="images\aqua_5_3.jpg" />
+    <Content Include="images\aqua_5_4.jpg" />
+    <Content Include="images\aqua_5_5.jpg" />
+    <Content Include="images\aqua_6.jpg" />
+    <Content Include="images\aqua_6_1.jpg" />
+    <Content Include="images\aqua_6_2.jpg" />
+    <Content Include="images\aqua_6_3.jpg" />
+    <Content Include="images\aqua_6_4.jpg" />
+    <Content Include="images\aqua_6_5.jpg" />
+    <Content Include="images\aqua_7.jpg" />
+    <Content Include="images\aqua_7_1.jpg" />
+    <Content Include="images\aqua_7_2.jpg" />
+    <Content Include="images\aqua_7_3.jpg" />
+    <Content Include="images\aqua_7_4.jpg" />
+    <Content Include="images\aqua_7_5.jpg" />
+    <Content Include="images\aqua_8.jpg" />
+    <Content Include="images\aqua_8_1.jpg" />
+    <Content Include="images\aqua_8_2.jpg" />
+    <Content Include="images\aqua_8_3.jpg" />
+    <Content Include="images\aqua_8_4.jpg" />
+    <Content Include="images\aqua_8_5.jpg" />
+    <Content Include="images\aqua_9.jpg" />
+    <Content Include="images\aqua_9_1.jpg" />
+    <Content Include="images\aqua_9_2.jpg" />
+    <Content Include="images\aqua_9_3.jpg" />
+    <Content Include="images\aqua_9_4.jpg" />
+    <Content Include="images\aqua_9_5.jpg" />
+    <Content Include="images\closed_1.jpg" />
+    <Content Include="images\closed_10.jpg" />
+    <Content Include="images\closed_10_1.jpg" />
+    <Content Include="images\closed_10_2.jpg" />
+    <Content Include="images\closed_10_3.jpg" />
+    <Content Include="images\closed_10_4.jpg" />
+    <Content Include="images\closed_10_5.jpg" />
+    <Content Include="images\closed_1_1.jpg" />
+    <Content Include="images\closed_1_2.jpg" />
+    <Content Include="images\closed_1_3.jpg" />
+    <Content Include="images\closed_1_4.jpg" />
+    <Content Include="images\closed_1_5.jpg" />
+    <Content Include="images\closed_2.jpg" />
+    <Content Include="images\closed_2_1.jpg" />
+    <Content Include="images\closed_2_2.jpg" />
+    <Content Include="images\closed_2_3.jpg" />
+    <Content Include="images\closed_2_4.jpg" />
+    <Content Include="images\closed_2_5.jpg" />
+    <Content Include="images\closed_3.jpg" />
+    <Content Include="images\closed_3_1.jpg" />
+    <Content Include="images\closed_3_2.jpg" />
+    <Content Include="images\closed_3_3.jpg" />
+    <Content Include="images\closed_3_4.jpg" />
+    <Content Include="images\closed_3_5.jpg" />
+    <Content Include="images\closed_4.jpg" />
+    <Content Include="images\closed_4_1.jpg" />
+    <Content Include="images\closed_4_2.jpg" />
+    <Content Include="images\closed_4_3.jpg" />
+    <Content Include="images\closed_4_4.jpg" />
+    <Content Include="images\closed_4_5.jpg" />
+    <Content Include="images\closed_5.jpg" />
+    <Content Include="images\closed_5_1.jpg" />
+    <Content Include="images\closed_5_2.jpg" />
+    <Content Include="images\closed_5_3.jpg" />
+    <Content Include="images\closed_5_4.jpg" />
+    <Content Include="images\closed_5_5.jpg" />
+    <Content Include="images\closed_6.jpg" />
+    <Content Include="images\closed_6_1.jpg" />
+    <Content Include="images\closed_6_2.jpg" />
+    <Content Include="images\closed_6_3.jpg" />
+    <Content Include="images\closed_6_4.jpg" />
+    <Content Include="images\closed_6_5.jpg" />
+    <Content Include="images\closed_7.jpg" />
+    <Content Include="images\closed_7_1.jpg" />
+    <Content Include="images\closed_7_2.jpg" />
+    <Content Include="images\closed_7_3.jpg" />
+    <Content Include="images\closed_7_4.jpg" />
+    <Content Include="images\closed_7_5.jpg" />
+    <Content Include="images\closed_8.jpg" />
+    <Content Include="images\closed_8_1.jpg" />
+    <Content Include="images\closed_8_2.jpg" />
+    <Content Include="images\closed_8_3.jpg" />
+    <Content Include="images\closed_8_4.jpg" />
+    <Content Include="images\closed_8_5.jpg" />
+    <Content Include="images\closed_9.jpg" />
+    <Content Include="images\closed_9_1.jpg" />
+    <Content Include="images\closed_9_2.jpg" />
+    <Content Include="images\closed_9_3.jpg" />
+    <Content Include="images\closed_9_4.jpg" />
+    <Content Include="images\closed_9_5.jpg" />
+    <Content Include="images\fish_1.jpg" />
+    <Content Include="images\fish_10.jpg" />
+    <Content Include="images\fish_10_1.jpg" />
+    <Content Include="images\fish_10_2.jpg" />
+    <Content Include="images\fish_10_3.jpg" />
+    <Content Include="images\fish_10_4.jpg" />
+    <Content Include="images\fish_10_5.jpg" />
+    <Content Include="images\fish_1_1.jpg" />
+    <Content Include="images\fish_1_2.jpg" />
+    <Content Include="images\fish_1_3.jpg" />
+    <Content Include="images\fish_1_4.jpg" />
+    <Content Include="images\fish_1_5.jpg" />
+    <Content Include="images\fish_2.jpg" />
+    <Content Include="images\fish_2_1.jpg" />
+    <Content Include="images\fish_2_2.jpg" />
+    <Content Include="images\fish_2_3.jpg" />
+    <Content Include="images\fish_2_4.jpg" />
+    <Content Include="images\fish_2_5.jpg" />
+    <Content Include="images\fish_3.jpg" />
+    <Content Include="images\fish_3_1.jpg" />
+    <Content Include="images\fish_3_2.jpg" />
+    <Content Include="images\fish_3_3.jpg" />
+    <Content Include="images\fish_3_4.jpg" />
+    <Content Include="images\fish_3_5.jpg" />
+    <Content Include="images\fish_4.jpg" />
+    <Content Include="images\fish_4_1.jpg" />
+    <Content Include="images\fish_4_2.jpg" />
+    <Content Include="images\fish_4_3.jpg" />
+    <Content Include="images\fish_4_4.jpg" />
+    <Content Include="images\fish_4_5.jpg" />
+    <Content Include="images\fish_5.jpg" />
+    <Content Include="images\fish_5_1.jpg" />
+    <Content Include="images\fish_5_2.jpg" />
+    <Content Include="images\fish_5_3.jpg" />
+    <Content Include="images\fish_5_4.jpg" />
+    <Content Include="images\fish_5_5.jpg" />
+    <Content Include="images\fish_6.jpg" />
+    <Content Include="images\fish_6_1.jpg" />
+    <Content Include="images\fish_6_2.jpg" />
+    <Content Include="images\fish_6_3.jpg" />
+    <Content Include="images\fish_6_4.jpg" />
+    <Content Include="images\fish_6_5.jpg" />
+    <Content Include="images\fish_7.jpg" />
+    <Content Include="images\fish_7_1.jpg" />
+    <Content Include="images\fish_7_2.jpg" />
+    <Content Include="images\fish_7_3.jpg" />
+    <Content Include="images\fish_7_4.jpg" />
+    <Content Include="images\fish_7_5.jpg" />
+    <Content Include="images\fish_8.jpg" />
+    <Content Include="images\fish_8_1.jpg" />
+    <Content Include="images\fish_8_2.jpg" />
+    <Content Include="images\fish_8_3.jpg" />
+    <Content Include="images\fish_8_4.jpg" />
+    <Content Include="images\fish_8_5.jpg" />
+    <Content Include="images\fish_9.jpg" />
+    <Content Include="images\fish_9_1.jpg" />
+    <Content Include="images\fish_9_2.jpg" />
+    <Content Include="images\fish_9_3.jpg" />
+    <Content Include="images\fish_9_4.jpg" />
+    <Content Include="images\fish_9_5.jpg" />
+    <Content Include="images\Logo.jpg" />
+    <Content Include="images\moss_1.jpg" />
+    <Content Include="images\moss_10.jpg" />
+    <Content Include="images\moss_10_1.jpg" />
+    <Content Include="images\moss_10_2.jpg" />
+    <Content Include="images\moss_10_3.jpg" />
+    <Content Include="images\moss_10_4.jpg" />
+    <Content Include="images\moss_10_5.jpg" />
+    <Content Include="images\moss_1_1.jpg" />
+    <Content Include="images\moss_1_2.jpg" />
+    <Content Include="images\moss_1_3.jpg" />
+    <Content Include="images\moss_1_4.jpg" />
+    <Content Include="images\moss_1_5.jpg" />
+    <Content Include="images\moss_2.jpg" />
+    <Content Include="images\moss_2_1.jpg" />
+    <Content Include="images\moss_2_2.jpg" />
+    <Content Include="images\moss_2_3.jpg" />
+    <Content Include="images\moss_2_4.jpg" />
+    <Content Include="images\moss_2_5.jpg" />
+    <Content Include="images\moss_3.jpg" />
+    <Content Include="images\moss_3_1.jpg" />
+    <Content Include="images\moss_3_2.jpg" />
+    <Content Include="images\moss_3_3.jpg" />
+    <Content Include="images\moss_3_4.jpg" />
+    <Content Include="images\moss_3_5.jpg" />
+    <Content Include="images\moss_4.jpg" />
+    <Content Include="images\moss_4_1.jpg" />
+    <Content Include="images\moss_4_2.jpg" />
+    <Content Include="images\moss_4_3.jpg" />
+    <Content Include="images\moss_4_4.jpg" />
+    <Content Include="images\moss_4_5.jpg" />
+    <Content Include="images\moss_5.jpg" />
+    <Content Include="images\moss_5_1.jpg" />
+    <Content Include="images\moss_5_2.jpg" />
+    <Content Include="images\moss_5_3.jpg" />
+    <Content Include="images\moss_5_4 - Copy %282%29.jpg" />
+    <Content Include="images\moss_5_4 - Copy - Copy.jpg" />
+    <Content Include="images\moss_5_4 - Copy.jpg" />
+    <Content Include="images\moss_5_4.jpg" />
+    <Content Include="images\moss_5_5 - Copy %282%29.jpg" />
+    <Content Include="images\moss_5_5 - Copy - Copy.jpg" />
+    <Content Include="images\moss_5_5 - Copy.jpg" />
+    <Content Include="images\moss_5_5.jpg" />
+    <Content Include="images\moss_6 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6 - Copy.jpg" />
+    <Content Include="images\moss_6.jpg" />
+    <Content Include="images\moss_6_1 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6_1 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6_1 - Copy.jpg" />
+    <Content Include="images\moss_6_1.jpg" />
+    <Content Include="images\moss_6_2 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6_2 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6_2 - Copy.jpg" />
+    <Content Include="images\moss_6_2.jpg" />
+    <Content Include="images\moss_6_3 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6_3 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6_3 - Copy.jpg" />
+    <Content Include="images\moss_6_3.jpg" />
+    <Content Include="images\moss_6_4 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6_4 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6_4 - Copy.jpg" />
+    <Content Include="images\moss_6_4.jpg" />
+    <Content Include="images\moss_6_5 - Copy %282%29.jpg" />
+    <Content Include="images\moss_6_5 - Copy - Copy.jpg" />
+    <Content Include="images\moss_6_5 - Copy.jpg" />
+    <Content Include="images\moss_6_5.jpg" />
+    <Content Include="images\moss_7 - Copy %282%29.jpg" />
+    <Content Include="images\moss_7 - Copy - Copy.jpg" />
+    <Content Include="images\moss_7 - Copy.jpg" />
+    <Content Include="images\moss_7.jpg" />
+    <Content Include="images\moss_7_1 - Copy %282%29.jpg" />
+    <Content Include="images\moss_7_1 - Copy - Copy.jpg" />
+    <Content Include="images\moss_7_1 - Copy.jpg" />
+    <Content Include="images\moss_7_1.jpg" />
+    <Content Include="images\moss_7_2 - Copy %282%29.jpg" />
+    <Content Include="images\moss_7_2 - Copy - Copy.jpg" />
+    <Content Include="images\moss_7_2 - Copy.jpg" />
+    <Content Include="images\moss_7_2.jpg" />
+    <Content Include="images\moss_7_3 - Copy %282%29.jpg" />
+    <Content Include="images\moss_7_3 - Copy - Copy.jpg" />
+    <Content Include="images\moss_7_3 - Copy.jpg" />
+    <Content Include="images\moss_7_3.jpg" />
+    <Content Include="images\moss_7_4 - Copy.jpg" />
+    <Content Include="images\moss_7_4.jpg" />
+    <Content Include="images\moss_7_5 - Copy.jpg" />
+    <Content Include="images\moss_7_5.jpg" />
+    <Content Include="images\moss_8 - Copy.jpg" />
+    <Content Include="images\moss_8.jpg" />
+    <Content Include="images\moss_8_1 - Copy.jpg" />
+    <Content Include="images\moss_8_1.jpg" />
+    <Content Include="images\moss_8_2 - Copy.jpg" />
+    <Content Include="images\moss_8_2.jpg" />
+    <Content Include="images\moss_8_3 - Copy.jpg" />
+    <Content Include="images\moss_8_3.jpg" />
+    <Content Include="images\moss_8_4 - Copy.jpg" />
+    <Content Include="images\moss_8_4.jpg" />
+    <Content Include="images\moss_8_5 - Copy.jpg" />
+    <Content Include="images\moss_8_5.jpg" />
+    <Content Include="images\moss_9 - Copy.jpg" />
+    <Content Include="images\moss_9.jpg" />
+    <Content Include="images\moss_9_1 - Copy.jpg" />
+    <Content Include="images\moss_9_1.jpg" />
+    <Content Include="images\moss_9_2 - Copy.jpg" />
+    <Content Include="images\moss_9_2.jpg" />
+    <Content Include="images\moss_9_3 - Copy.jpg" />
+    <Content Include="images\moss_9_3.jpg" />
+    <Content Include="images\moss_9_4 - Copy.jpg" />
+    <Content Include="images\moss_9_4.jpg" />
+    <Content Include="images\moss_9_5 - Copy.jpg" />
+    <Content Include="images\moss_9_5.jpg" />
+    <Content Include="images\open_1 - Copy.jpg" />
+    <Content Include="images\open_1.jpg" />
+    <Content Include="images\open_10 - Copy.jpg" />
+    <Content Include="images\open_10.jpg" />
+    <Content Include="images\open_10_1 - Copy.jpg" />
+    <Content Include="images\open_10_1.jpg" />
+    <Content Include="images\open_10_2 - Copy.jpg" />
+    <Content Include="images\open_10_2.jpg" />
+    <Content Include="images\open_10_3 - Copy.jpg" />
+    <Content Include="images\open_10_3.jpg" />
+    <Content Include="images\open_10_4 - Copy.jpg" />
+    <Content Include="images\open_10_4.jpg" />
+    <Content Include="images\open_10_5 - Copy.jpg" />
+    <Content Include="images\open_10_5.jpg" />
+    <Content Include="images\open_1_1 - Copy.jpg" />
+    <Content Include="images\open_1_1.jpg" />
+    <Content Include="images\open_1_2 - Copy.jpg" />
+    <Content Include="images\open_1_2.jpg" />
+    <Content Include="images\open_1_3 - Copy.jpg" />
+    <Content Include="images\open_1_3.jpg" />
+    <Content Include="images\open_1_4 - Copy.jpg" />
+    <Content Include="images\open_1_4.jpg" />
+    <Content Include="images\open_1_5 - Copy.jpg" />
+    <Content Include="images\open_1_5.jpg" />
+    <Content Include="images\open_2 - Copy.jpg" />
+    <Content Include="images\open_2.jpg" />
+    <Content Include="images\open_2_1 - Copy.jpg" />
+    <Content Include="images\open_2_1.jpg" />
+    <Content Include="images\open_2_2 - Copy.jpg" />
+    <Content Include="images\open_2_2.jpg" />
+    <Content Include="images\open_2_3 - Copy.jpg" />
+    <Content Include="images\open_2_3.jpg" />
+    <Content Include="images\open_2_4 - Copy.jpg" />
+    <Content Include="images\open_2_4.jpg" />
+    <Content Include="images\open_2_5 - Copy.jpg" />
+    <Content Include="images\open_2_5.jpg" />
+    <Content Include="images\open_3 - Copy.jpg" />
+    <Content Include="images\open_3.jpg" />
+    <Content Include="images\open_3_1 - Copy.jpg" />
+    <Content Include="images\open_3_1.jpg" />
+    <Content Include="images\open_3_2 - Copy.jpg" />
+    <Content Include="images\open_3_2.jpg" />
+    <Content Include="images\open_3_3 - Copy.jpg" />
+    <Content Include="images\open_3_3.jpg" />
+    <Content Include="images\open_3_4 - Copy.jpg" />
+    <Content Include="images\open_3_4.jpg" />
+    <Content Include="images\open_3_5 - Copy.jpg" />
+    <Content Include="images\open_3_5.jpg" />
+    <Content Include="images\open_4 - Copy.jpg" />
+    <Content Include="images\open_4.jpg" />
+    <Content Include="images\open_4_1 - Copy.jpg" />
+    <Content Include="images\open_4_1.jpg" />
+    <Content Include="images\open_4_2 - Copy.jpg" />
+    <Content Include="images\open_4_2.jpg" />
+    <Content Include="images\open_4_3 - Copy.jpg" />
+    <Content Include="images\open_4_3.jpg" />
+    <Content Include="images\open_4_4 - Copy.jpg" />
+    <Content Include="images\open_4_4.jpg" />
+    <Content Include="images\open_4_5 - Copy.jpg" />
+    <Content Include="images\open_4_5.jpg" />
+    <Content Include="images\open_5 - Copy.jpg" />
+    <Content Include="images\open_5.jpg" />
+    <Content Include="images\open_5_1 - Copy.jpg" />
+    <Content Include="images\open_5_1.jpg" />
+    <Content Include="images\open_5_2 - Copy.jpg" />
+    <Content Include="images\open_5_2.jpg" />
+    <Content Include="images\open_5_3 - Copy.jpg" />
+    <Content Include="images\open_5_3.jpg" />
+    <Content Include="images\open_5_4 - Copy.jpg" />
+    <Content Include="images\open_5_4.jpg" />
+    <Content Include="images\open_5_5 - Copy.jpg" />
+    <Content Include="images\open_5_5.jpg" />
+    <Content Include="images\open_6 - Copy.jpg" />
+    <Content Include="images\open_6.jpg" />
+    <Content Include="images\open_6_1 - Copy.jpg" />
+    <Content Include="images\open_6_1.jpg" />
+    <Content Include="images\open_6_2 - Copy.jpg" />
+    <Content Include="images\open_6_2.jpg" />
+    <Content Include="images\open_6_3 - Copy.jpg" />
+    <Content Include="images\open_6_3.jpg" />
+    <Content Include="images\open_6_4 - Copy.jpg" />
+    <Content Include="images\open_6_4.jpg" />
+    <Content Include="images\open_6_5 - Copy.jpg" />
+    <Content Include="images\open_6_5.jpg" />
+    <Content Include="images\open_7 - Copy.jpg" />
+    <Content Include="images\open_7.jpg" />
+    <Content Include="images\open_7_1 - Copy.jpg" />
+    <Content Include="images\open_7_1.jpg" />
+    <Content Include="images\open_7_2 - Copy.jpg" />
+    <Content Include="images\open_7_2.jpg" />
+    <Content Include="images\open_7_3 - Copy.jpg" />
+    <Content Include="images\open_7_3.jpg" />
+    <Content Include="images\open_7_4 - Copy.jpg" />
+    <Content Include="images\open_7_4.jpg" />
+    <Content Include="images\open_7_5 - Copy.jpg" />
+    <Content Include="images\open_7_5.jpg" />
+    <Content Include="images\open_8 - Copy.jpg" />
+    <Content Include="images\open_8.jpg" />
+    <Content Include="images\open_8_1 - Copy.jpg" />
+    <Content Include="images\open_8_1.jpg" />
+    <Content Include="images\open_8_2 - Copy.jpg" />
+    <Content Include="images\open_8_2.jpg" />
+    <Content Include="images\open_8_3 - Copy.jpg" />
+    <Content Include="images\open_8_3.jpg" />
+    <Content Include="images\open_8_4 - Copy.jpg" />
+    <Content Include="images\open_8_4.jpg" />
+    <Content Include="images\open_8_5 - Copy.jpg" />
+    <Content Include="images\open_8_5.jpg" />
+    <Content Include="images\open_9 - Copy.jpg" />
+    <Content Include="images\open_9.jpg" />
+    <Content Include="images\open_9_1 - Copy.jpg" />
+    <Content Include="images\open_9_1.jpg" />
+    <Content Include="images\open_9_2 - Copy.jpg" />
+    <Content Include="images\open_9_2.jpg" />
+    <Content Include="images\open_9_3 - Copy.jpg" />
+    <Content Include="images\open_9_3.jpg" />
+    <Content Include="images\open_9_4 - Copy.jpg" />
+    <Content Include="images\open_9_4.jpg" />
+    <Content Include="images\open_9_5 - Copy.jpg" />
+    <Content Include="images\open_9_5.jpg" />
+    <Content Include="images\proCart_1.jpg" />
+    <Content Include="images\proCart_2.jpg" />
+    <Content Include="images\proCart_3.jpg" />
+    <Content Include="images\proCart_4.jpg" />
+    <Content Include="images\proCart_5.jpg" />
+    <Content Include="images\proCart_6.jpg" />
+    <Content Include="images\pro_1.jpg" />
+    <Content Include="images\pro_2.jpg" />
+    <Content Include="images\pro_3.jpg" />
+    <Content Include="images\stone_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1 - Copy.jpg" />
+    <Content Include="images\stone_1.jpg" />
+    <Content Include="images\stone_10 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10 - Copy.jpg" />
+    <Content Include="images\stone_10.jpg" />
+    <Content Include="images\stone_10_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10_1 - Copy.jpg" />
+    <Content Include="images\stone_10_1.jpg" />
+    <Content Include="images\stone_10_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10_2 - Copy.jpg" />
+    <Content Include="images\stone_10_2.jpg" />
+    <Content Include="images\stone_10_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10_3 - Copy.jpg" />
+    <Content Include="images\stone_10_3.jpg" />
+    <Content Include="images\stone_10_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10_4 - Copy.jpg" />
+    <Content Include="images\stone_10_4.jpg" />
+    <Content Include="images\stone_10_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_10_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_10_5 - Copy.jpg" />
+    <Content Include="images\stone_10_5.jpg" />
+    <Content Include="images\stone_1_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1_1 - Copy.jpg" />
+    <Content Include="images\stone_1_1.jpg" />
+    <Content Include="images\stone_1_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1_2 - Copy.jpg" />
+    <Content Include="images\stone_1_2.jpg" />
+    <Content Include="images\stone_1_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1_3 - Copy.jpg" />
+    <Content Include="images\stone_1_3.jpg" />
+    <Content Include="images\stone_1_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1_4 - Copy.jpg" />
+    <Content Include="images\stone_1_4.jpg" />
+    <Content Include="images\stone_1_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_1_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_1_5 - Copy.jpg" />
+    <Content Include="images\stone_1_5.jpg" />
+    <Content Include="images\stone_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2 - Copy.jpg" />
+    <Content Include="images\stone_2.jpg" />
+    <Content Include="images\stone_2_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2_1 - Copy.jpg" />
+    <Content Include="images\stone_2_1.jpg" />
+    <Content Include="images\stone_2_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2_2 - Copy.jpg" />
+    <Content Include="images\stone_2_2.jpg" />
+    <Content Include="images\stone_2_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2_3 - Copy.jpg" />
+    <Content Include="images\stone_2_3.jpg" />
+    <Content Include="images\stone_2_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2_4 - Copy.jpg" />
+    <Content Include="images\stone_2_4.jpg" />
+    <Content Include="images\stone_2_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_2_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_2_5 - Copy.jpg" />
+    <Content Include="images\stone_2_5.jpg" />
+    <Content Include="images\stone_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3 - Copy.jpg" />
+    <Content Include="images\stone_3.jpg" />
+    <Content Include="images\stone_3_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3_1 - Copy.jpg" />
+    <Content Include="images\stone_3_1.jpg" />
+    <Content Include="images\stone_3_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3_2 - Copy.jpg" />
+    <Content Include="images\stone_3_2.jpg" />
+    <Content Include="images\stone_3_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3_3 - Copy.jpg" />
+    <Content Include="images\stone_3_3.jpg" />
+    <Content Include="images\stone_3_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3_4 - Copy.jpg" />
+    <Content Include="images\stone_3_4.jpg" />
+    <Content Include="images\stone_3_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_3_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_3_5 - Copy.jpg" />
+    <Content Include="images\stone_3_5.jpg" />
+    <Content Include="images\stone_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4 - Copy.jpg" />
+    <Content Include="images\stone_4.jpg" />
+    <Content Include="images\stone_4_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4_1 - Copy.jpg" />
+    <Content Include="images\stone_4_1.jpg" />
+    <Content Include="images\stone_4_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4_2 - Copy.jpg" />
+    <Content Include="images\stone_4_2.jpg" />
+    <Content Include="images\stone_4_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4_3 - Copy.jpg" />
+    <Content Include="images\stone_4_3.jpg" />
+    <Content Include="images\stone_4_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4_4 - Copy.jpg" />
+    <Content Include="images\stone_4_4.jpg" />
+    <Content Include="images\stone_4_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_4_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_4_5 - Copy.jpg" />
+    <Content Include="images\stone_4_5.jpg" />
+    <Content Include="images\stone_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5 - Copy.jpg" />
+    <Content Include="images\stone_5.jpg" />
+    <Content Include="images\stone_5_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5_1 - Copy.jpg" />
+    <Content Include="images\stone_5_1.jpg" />
+    <Content Include="images\stone_5_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5_2 - Copy.jpg" />
+    <Content Include="images\stone_5_2.jpg" />
+    <Content Include="images\stone_5_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5_3 - Copy.jpg" />
+    <Content Include="images\stone_5_3.jpg" />
+    <Content Include="images\stone_5_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5_4 - Copy.jpg" />
+    <Content Include="images\stone_5_4.jpg" />
+    <Content Include="images\stone_5_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_5_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_5_5 - Copy.jpg" />
+    <Content Include="images\stone_5_5.jpg" />
+    <Content Include="images\stone_6 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6 - Copy.jpg" />
+    <Content Include="images\stone_6.jpg" />
+    <Content Include="images\stone_6_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6_1 - Copy.jpg" />
+    <Content Include="images\stone_6_1.jpg" />
+    <Content Include="images\stone_6_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6_2 - Copy.jpg" />
+    <Content Include="images\stone_6_2.jpg" />
+    <Content Include="images\stone_6_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6_3 - Copy.jpg" />
+    <Content Include="images\stone_6_3.jpg" />
+    <Content Include="images\stone_6_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6_4 - Copy.jpg" />
+    <Content Include="images\stone_6_4.jpg" />
+    <Content Include="images\stone_6_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_6_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_6_5 - Copy.jpg" />
+    <Content Include="images\stone_6_5.jpg" />
+    <Content Include="images\stone_7 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7 - Copy.jpg" />
+    <Content Include="images\stone_7.jpg" />
+    <Content Include="images\stone_7_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7_1 - Copy.jpg" />
+    <Content Include="images\stone_7_1.jpg" />
+    <Content Include="images\stone_7_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7_2 - Copy.jpg" />
+    <Content Include="images\stone_7_2.jpg" />
+    <Content Include="images\stone_7_3 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7_3 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7_3 - Copy.jpg" />
+    <Content Include="images\stone_7_3.jpg" />
+    <Content Include="images\stone_7_4 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7_4 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7_4 - Copy.jpg" />
+    <Content Include="images\stone_7_4.jpg" />
+    <Content Include="images\stone_7_5 - Copy %282%29.jpg" />
+    <Content Include="images\stone_7_5 - Copy - Copy.jpg" />
+    <Content Include="images\stone_7_5 - Copy.jpg" />
+    <Content Include="images\stone_7_5.jpg" />
+    <Content Include="images\stone_8 - Copy %282%29.jpg" />
+    <Content Include="images\stone_8 - Copy - Copy.jpg" />
+    <Content Include="images\stone_8 - Copy.jpg" />
+    <Content Include="images\stone_8.jpg" />
+    <Content Include="images\stone_8_1 - Copy %282%29.jpg" />
+    <Content Include="images\stone_8_1 - Copy - Copy.jpg" />
+    <Content Include="images\stone_8_1 - Copy.jpg" />
+    <Content Include="images\stone_8_1.jpg" />
+    <Content Include="images\stone_8_2 - Copy %282%29.jpg" />
+    <Content Include="images\stone_8_2 - Copy - Copy.jpg" />
+    <Content Include="images\stone_8_2 - Copy.jpg" />
+    <Content Include="images\stone_8_2.jpg" />
+    <Content Include="images\stone_8_3 - Copy.jpg" />
+    <Content Include="images\stone_8_3.jpg" />
+    <Content Include="images\stone_8_4 - Copy.jpg" />
+    <Content Include="images\stone_8_4.jpg" />
+    <Content Include="images\stone_8_5 - Copy.jpg" />
+    <Content Include="images\stone_8_5.jpg" />
+    <Content Include="images\stone_9 - Copy.jpg" />
+    <Content Include="images\stone_9.jpg" />
+    <Content Include="images\stone_9_1 - Copy.jpg" />
+    <Content Include="images\stone_9_1.jpg" />
+    <Content Include="images\stone_9_2.jpg" />
+    <Content Include="images\stone_9_3.jpg" />
+    <Content Include="images\stone_9_4.jpg" />
+    <Content Include="images\stone_9_5.jpg" />
+    <Content Include="Models\WebBanTerraModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebBanTerraModel1.edmx</DependentUpon>
+      <LastGenOutput>WebBanTerraModel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WebBanTerraModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WebBanTerraModel1.edmx</DependentUpon>
+      <LastGenOutput>WebBanTerraModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="obj\Debug\DoAn_WebBanCayCanh_24DKTPM1A.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DoAn_WebBanCayCanh_24DKTPM1A.dll" />
+    <Content Include="obj\Debug\DoAn_WebBanCayCanh_24DKTPM1A.pdb" />
+    <Content Include="obj\Debug\TempPE\Models.WebBanTerraModel1.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.WebBanTerraModel1.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.WebBanTerraModel1.Designer.cs.dll" />
+    <Content Include="packages\bootstrap.5.3.8\bootstrap.png" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\EntityFramework.6.5.1\build\Microsoft.Data.Entity.Build.Tasks.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\Icon.png" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\about_EntityFramework6.help.txt" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.pdb" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\NET.icon.png" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.0\NET.icon.png" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.0\NET_Library_EULA_ENU.txt" />
+    <Content Include="packages\PagedList.1.17.0.0\lib\net40\PagedList.dll" />
+    <Content Include="packages\PagedList.1.17.0.0\lib\net40\PagedList.xml" />
+    <Content Include="packages\PagedList.Mvc.4.5.0.0\Content\Content\PagedList.css" />
+    <Content Include="packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll" />
+    <Content Include="packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.XML" />
+    <Content Include="Scripts\about.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cart.js" />
+    <Content Include="Scripts\Product.js" />
+    <Content Include="Scripts\aqua.js" />
+    <Content Include="Scripts\tera.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductImage.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebBanTerraModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebBanTerraModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebBanTerraModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebBanTerraModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebBanTerraModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebBanTerraModel1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\WebBanTerraModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WebBanTerraModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\WebBanTerraModel1.edmx.diagram">
+      <DependentUpon>WebBanTerraModel1.edmx</DependentUpon>
+    </Content>
+    <Content Include="bin\DoAn_WebBanCayCanh_24DKTPM1A.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\DoAn_Web.641C3E2E.Up2Date" />
+    <Content Include="obj\Debug\DoAn_WebBanCayCanh_24DKTPM1A.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\DoAn_WebBanCayCanh_24DKTPM1A.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\WebBanTerraModel1.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\WebBanTerraModel1.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\WebBanTerraModel1.ssdl" />
+    <Content Include="obj\Release\DoAn_WebBanCayCanh_24DKTPM1A.csproj.AssemblyReference.cache" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Shared\_TeraLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Products\Single.cshtml" />
+    <Content Include="Views\Products\Tera.cshtml" />
+    <Content Include="Views\Products\Aqua.cshtml" />
+    <Content Include="Views\Products\_TeraGrid.cshtml" />
+    <Content Include="packages\bootstrap.5.3.8\.signature.p7s" />
+    <Content Include="packages\bootstrap.5.3.8\bootstrap.5.3.8.nupkg" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Content\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.3.8\content\Scripts\bootstrap.min.js.map" />
+    <Content Include="packages\EntityFramework.6.5.1\.signature.p7s" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.DefaultItems.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\App.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\App.config.transform" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\Web.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\Web.config.transform" />
+    <Content Include="packages\EntityFramework.6.5.1\EntityFramework.6.5.1.nupkg" />
+    <Content Include="packages\EntityFramework.6.5.1\README.md" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psd1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psm1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psd1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psm1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\init.ps1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\install.ps1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.runtimeconfig.json" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.9\Microsoft.AspNet.Mvc.5.2.9.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.9\Microsoft.AspNet.Razor.3.2.9.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.9\Microsoft.AspNet.WebPages.3.2.9.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.2.0.0\Microsoft.Web.Infrastructure.2.0.0.nupkg" />
+    <Content Include="packages\PagedList.1.17.0.0\.signature.p7s" />
+    <Content Include="packages\PagedList.1.17.0.0\PagedList.1.17.0.0.nupkg" />
+    <Content Include="packages\PagedList.Mvc.4.5.0.0\.signature.p7s" />
+    <Content Include="packages\PagedList.Mvc.4.5.0.0\PagedList.Mvc.4.5.0.0.nupkg" />
+    <Content Include="Views\Products\_AquaGrid.cshtml" />
+    <Content Include="Views\Products\Search.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63595</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63595/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

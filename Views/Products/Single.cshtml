@@ -1,0 +1,271 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Product
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/StyleSingle.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/Product.js"></script>
+}
+
+<div class="container pt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="font-size: 0.9rem;">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")" class="text-decoration-none text-dark">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Tera", "Products")" class="text-decoration-none text-dark">Sản phẩm</a></li>
+            <li class="breadcrumb-item active text-truncate" style="max-width: 300px;">@Model.Name</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row g-0 shadow-sm rounded overflow-hidden">
+
+        <div class="col-md-5">
+            <div class="gallery-container">
+                <div class="main-image-box">
+                    <img id="mainImage" src="@Url.Content("~/images/" + Model.Image)" alt="@Model.Name">
+                </div>
+
+                <div class="row row-cols-5 g-2">
+                    @{
+                        string fileNameWithoutExt = System.IO.Path.GetFileNameWithoutExtension(Model.Image);
+                        string extension = System.IO.Path.GetExtension(Model.Image);
+                        var listImages = new List<string>();
+                        listImages.Add(Url.Content("~/images/" + Model.Image));
+                        for (int i = 1; i <= 4; i++)
+                        {
+                            listImages.Add(Url.Content("~/images/" + fileNameWithoutExt + "_" + i + extension));
+                        }
+                    }
+                    @for (int i = 0; i < listImages.Count; i++)
+                    {
+                        <div class="col">
+                            <div class="thumb-box @(i==0 ? "active" : "")" onclick="changeImage(this, '@listImages[i]')" id="thumb-@i">
+                                <img src="@listImages[i]" onerror="this.src='@listImages[0]'">
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center mt-3 gap-3 text-secondary" style="font-size: 0.9rem;">
+                    <div class="ps-3">
+                        <i class="far fa-heart text-danger"></i> Đã thích (@Model.LuotXem)
+                    </div>
+                    <div>|</div>
+                    <div>Chia sẻ: <i class="fab fa-facebook text-primary"></i> <i class="fab fa-messenger text-primary"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="product-info-box">
+                <h1 class="product-title">
+                    <span class="badge bg-danger align-middle me-1" style="font-size: 0.7rem;">YÊU THÍCH</span>
+                    @Model.Name
+                </h1>
+
+                <div class="d-flex align-items-center mb-3">
+                    <span class="text-decoration-underline me-1 fw-bold text-danger">
+                        @(Model.Reviews != null && Model.Reviews.Count > 0 ? Math.Round((double)Model.Reviews.Average(r => r.Rating), 1) : 5.0)
+                    </span>
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="mx-3 text-secondary">|</span>
+                    <span class="text-decoration-underline me-1 fw-bold text-dark">@(Model.Reviews != null ? Model.Reviews.Count : 0)</span>
+                    <span class="text-secondary">Đánh giá</span>
+                    <span class="mx-3 text-secondary">|</span>
+                    <span class="text-decoration-underline me-1 fw-bold text-dark">@Model.DaBan</span>
+                    <span class="text-secondary">Đã bán</span>
+                </div>
+
+                <div class="price-section">
+                    <span class="current-price">@String.Format("{0:#,##0} ₫", Model.Price)</span>
+                    @if (Model.PriceSale.HasValue)
+                    {<span class="old-price ms-3">@String.Format("{0:#,##0} ₫", Model.PriceSale)</span>}
+                </div>
+
+                <div class="section-row">
+                    <div class="section-label">Vận chuyển</div>
+                    <div><i class="fas fa-truck text-success me-2"></i> Miễn phí vận chuyển</div>
+                </div>
+
+                <div class="section-row">
+                    <div class="section-label">Kích thước</div>
+                    <div><button class="btn btn-outline-success btn-sm active px-3">@Model.Size</button></div>
+                </div>
+
+                <div class="section-row">
+                    <div class="section-label">Kho hàng</div>
+                    <div class="text-dark">@Model.Quantity sản phẩm có sẵn</div>
+                </div>
+
+                <form action="@Url.Action("Cart", "Cart")" method="post">
+                    <input type="hidden" name="SanPhamID" value="@Model.Id" />
+                    <div class="section-row">
+                        <div class="section-label">Số lượng</div>
+                        <div class="d-flex align-items-center">
+                            <div class="input-group" style="width: 120px;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="stepDown()">-</button>
+                                <input type="number" name="soLuong" id="qtyInput" class="form-control text-center" value="1" min="1">
+                                <button class="btn btn-outline-secondary" type="button" onclick="stepUp()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="@Url.Action("AddToCart", "Cart", new { productId = Model.Id, url = Request.Url.ToString() })"
+                           class="btn btn-add">
+                            <i class="fa fa-cart-plus me-1"></i> Thêm giỏ hàng
+                        </a>
+                    </div>
+                </form>
+
+                <hr class="my-4 text-secondary opacity-25">
+                <div class="d-flex justify-content-between px-3 text-secondary" style="font-size: 0.85rem;">
+                    <span><i class="fas fa-shield-alt text-primary me-1"></i> Bảo hiểm Bể vỡ</span>
+                    <span><i class="fas fa-check-circle text-primary me-1"></i> Hàng chính hãng 100%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="shop-info-container shadow-sm">
+        <div class="d-flex align-items-center" style="border-right: 1px solid #eee; padding-right: 40px;">
+            <img src="~/images/Logo.jpg" onerror="this.src='https://via.placeholder.com/70'" class="shop-avatar">
+            <div>
+                <div class="fw-bold mb-1">Còi Garden Terrarium</div>
+                <div class="text-secondary small">Online 2 phút trước</div>
+                <div class="d-flex gap-2 mt-1">
+                    <button class="btn btn-outline-secondary btn-sm" style="font-size: 0.8rem;">Chat Ngay</button>
+                    <button class="btn btn-outline-secondary btn-sm" style="font-size: 0.8rem;">Xem Shop</button>
+                </div>
+            </div>
+        </div>
+        <div class="shop-stats row flex-grow-1 text-center">
+            <div class="col">
+                <div class="mb-1"><span class="stat-val">@(Model.Reviews != null ? Model.Reviews.Count : 0)</span></div>
+                <div>Đánh giá</div>
+            </div>
+            <div class="col">
+                <div class="mb-1"><span class="stat-val">70</span></div>
+                <div>Sản phẩm</div>
+            </div>
+            <div class="col">
+                <div class="mb-1"><span class="stat-val">100%</span></div>
+                <div>Phản hồi</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="detail-container shadow-sm">
+                <div class="section-title">Chi Tiết Sản Phẩm</div>
+                <table class="table table-borderless spec-table mb-4">
+                    <tbody>
+                        <tr><td width="150" class="text-secondary">Danh mục</td><td class="text-primary">@Model.Category.Name</td></tr>
+                        <tr><td class="text-secondary">Kho hàng</td><td>@Model.Quantity</td></tr>
+                        <tr><td class="text-secondary">Kích thước</td><td>@Model.Size</td></tr>
+                        <tr><td class="text-secondary">Gửi từ</td><td>TP. Hồ Chí Minh</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="section-title">Mô Tả Sản Phẩm</div>
+                <div class="content lh-lg text-dark">
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {@Html.Raw(Model.Description) }
+                else
+                { <p>Thông tin đang cập nhật...</p>}
+                </div>
+            </div>
+
+            <div class="detail-container shadow-sm mt-3">
+                <div class="section-title">Đánh Giá Sản Phẩm (@(Model.Reviews != null ? Model.Reviews.Count : 0))</div>
+
+                @if (Model.Reviews != null && Model.Reviews.Count > 0)
+                {
+                    <div class="bg-light p-4 mb-4 border rounded">
+                        <div class="d-flex align-items-center">
+                            <div class="me-4 text-center">
+                                <div class="fs-2 fw-bold text-danger">@Math.Round((double)Model.Reviews.Average(r => r.Rating), 1)<span class="fs-5 text-secondary"> trên 5</span></div>
+                                <div class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button class="btn btn-outline-success active btn-sm">Tất cả</button>
+                                <button class="btn btn-outline-secondary btn-sm">5 Sao (@Model.Reviews.Count(r => r.Rating == 5))</button>
+                                <button class="btn btn-outline-secondary btn-sm">4 Sao (@Model.Reviews.Count(r => r.Rating == 4))</button>
+                                <button class="btn btn-outline-secondary btn-sm">3 Sao (@Model.Reviews.Count(r => r.Rating == 3))</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    foreach (var review in Model.Reviews.OrderByDescending(r => r.CreatedDate))
+                    {
+                        <div class="border-bottom pb-3 mb-3">
+                            <div class="d-flex">
+                                <img src="https://ui-avatars.com/api/?name=@review.FullName&background=random&color=fff&size=50" class="rounded-circle me-3" width="40" height="40">
+                                <div class="flex-grow-1">
+                                    <div class="small fw-bold">@review.FullName</div>
+
+                                    <div class="text-warning small" style="font-size: 0.7rem;">
+                                        @for (int i = 0; i < review.Rating; i++)
+                                        {<i class="fas fa-star"></i>}
+                                    </div>
+
+                                    <div class="text-secondary small mb-2">
+                                        @if (review.CreatedDate.HasValue)
+                                        {@review.CreatedDate.Value.ToString("dd/MM/yyyy HH:mm")}
+                                        | Phân loại: @Model.Size
+                                    </div>
+
+                                    <div class="mb-2">@review.Comment</div>
+
+                                    <div class="bg-light p-3 rounded position-relative mt-2" style="font-size: 0.9rem;">
+                                        <div class="fw-bold text-success mb-1">Phản Hồi Của Người Bán:</div>
+                                        <div>Cảm ơn bạn đã tin tưởng ủng hộ Còi Garden. Mong bạn sẽ tiếp tục đồng hành cùng shop nhé! 🌿</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center py-5">
+                        <i class="far fa-comment-dots fs-1 text-muted mb-3"></i>
+                        <p class="text-muted">Chưa có đánh giá nào cho sản phẩm này.</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="sidebar-product shadow-sm">
+                <div class="fw-bold text-secondary mb-3 text-center text-uppercase">Top Bán Chạy</div>
+                @{ var topProducts = ViewBag.TopBanChay as List<DoAn_WebBanCayCanh_24DKTPM1A.Models.Product>; }
+                @if (topProducts != null)
+                {
+                    foreach (var item in topProducts)
+                    {
+                        <a href="@Url.Action("Single", "Products", new { id = item.Id })" class="text-decoration-none text-dark">
+                            <div class="mini-card border-bottom pb-2">
+                                <img src="@Url.Content("~/images/" + item.Image)">
+                                <div class="mini-card-info">
+                                    <div class="text-truncate mb-1 fw-bold">@item.Name</div>
+                                    <div class="mini-card-price">@String.Format("{0:#,##0} ₫", item.Price)</div>
+                                    <div class="small text-secondary">Đã bán @item.DaBan</div>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

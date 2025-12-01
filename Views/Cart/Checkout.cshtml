@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/StyleCheckout.css" rel="stylesheet" />
+}
+
+<div class="container py-5">
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+            <h4 class="mb-3 fw-bold">Thông tin giao hàng</h4>
+            <form id="checkoutForm" class="needs-validation" novalidate>
+                <div class="checkout-box">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="fullName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="VD: Nguyễn Văn A" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="0909xxxxxx" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">Tỉnh / Thành phố <span class="text-danger">*</span></label>
+                            <select class="form-select" id="city" required>
+                                <option value="">Chọn tỉnh thành...</option>
+                                <option>Hồ Chí Minh</option>
+                                <option>Hà Nội</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="district" class="form-label">Quận / Huyện <span class="text-danger">*</span></label>
+                            <select class="form-select" id="district" required>
+                                <option value="">Chọn quận huyện...</option>
+                                <option>Quận 1</option>
+                                <option>Quận 2</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="address" class="form-label">Địa chỉ cụ thể <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="address" placeholder="Số nhà, tên đường..." required>
+                        </div>
+                        <div class="col-12">
+                            <label for="note" class="form-label">Ghi chú đơn hàng (Tùy chọn)</label>
+                            <textarea class="form-control" id="note" rows="3" placeholder="Ghi chú..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-5">
+            <h4 class="mb-3 fw-bold">Đơn hàng của bạn</h4>
+            <div class="checkout-box sticky-top" style="top: 90px; z-index: 1;">
+
+                <div class="mb-4">
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1596727293773-677a284c47b5?q=80&w=200" class="order-img" alt="Sp">
+                        <div>
+                            <h6 class="mb-1 fw-bold">Bể Rêu Mini</h6>
+                            <small class="text-muted">Số lượng: 1</small>
+                            <div class="text-success fw-bold">450.000₫</div>
+                        </div>
+                    </div>
+
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1627993073950-c6e2671ae65e?q=80&w=200" class="order-img" alt="Sp">
+                        <div>
+                            <h6 class="mb-1 fw-bold">Set Dương Xỉ Rừng</h6>
+                            <small class="text-muted">Số lượng: 2</small>
+                            <div class="text-success fw-bold">240.000₫</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tạm tính</span>
+                        <span class="fw-bold">690.000₫</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Vận chuyển</span>
+                        <span class="text-success">Miễn phí</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="h5 fw-bold">Tổng cộng</span>
+                        <span class="h4 fw-bold text-success">690.000₫</span>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-3">Phương thức thanh toán</h5>
+                <div class="payment-option selected mb-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="cod" checked>
+                        <label class="form-check-label fw-bold" for="cod">Thanh toán khi nhận hàng (COD)</label>
+                    </div>
+                </div>
+                <div class="payment-option mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="bank">
+                        <label class="form-check-label fw-bold" for="bank">Chuyển khoản ngân hàng</label>
+                    </div>
+                </div>
+
+                <button class="btn-order">Đặt hàng ngay</button>
+            </div>
+        </div>
+    </div>
+</div>
+

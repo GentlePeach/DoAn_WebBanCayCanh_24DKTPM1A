@@ -1,0 +1,61 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DoAn_WebBanCayCanh_24DKTPM1A.Models.Product>
+@{
+    Layout = null;
+}
+<div id="product-list-content">
+    <div class="row g-4">
+        @if (Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-4 col-6">
+                    <div class="product-card h-100">
+                        <div class="product-img-wrap">
+                            <a href="@Url.Action("Single", "Products", new { id = item.Id })">
+                                <img src="@Url.Content("~/images/" + item.Image)" class="product-img" alt="@item.Name">
+                            </a>
+                        </div>
+                        <div class="product-body">
+                            <h6 class="product-title">
+                                <a href="@Url.Action("Single", "Products", new { id = item.Id })" class="text-decoration-none text-dark">
+                                    @item.Name
+                                </a>
+                            </h6>
+                            <div class="product-price mb-2">
+                                @String.Format("{0:#,##0} ₫", item.Price)
+                            </div>
+                            <form action="@Url.Action("AddToCart", "Cart")" method="post">
+                                <input type="hidden" name="SanPhamID" value="@item.Id" />
+                                <input type="hidden" name="soLuong" value="1" />
+                                <input type="hidden" name="loai" value="them" />
+                                <a href="@Url.Action("AddToCart", "Cart", new { productId = item.Id, url = Request.Url.ToString() })"
+                                   class="btn btn-add">
+                                    <i class="fa fa-cart-plus me-1"></i> Thêm giỏ hàng
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">Không tìm thấy sản phẩm nào phù hợp.</p>
+            </div>
+        }
+        <div class="pagination-wrapper text-center">
+            @Html.PagedListPager(Model,
+                page => Url.Action("Aqua", new { page, categoryId = ViewBag.CurrentCate, minPrice = ViewBag.MinPrice, maxPrice = ViewBag.MaxPrice }),
+                PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+                    {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "product-list-container"
+                })
+            )
+        </div>
+    </div>
+</div>
+

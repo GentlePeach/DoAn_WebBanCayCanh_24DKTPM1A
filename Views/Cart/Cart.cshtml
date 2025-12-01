@@ -1,0 +1,130 @@
+﻿@using DoAn_WebBanCayCanh_24DKTPM1A.Models
+@model List<DoAn_WebBanCayCanh_24DKTPM1A.Models.CartItem>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/StyleCart.css" rel="stylesheet" />
+}
+
+<div class="cart-header text-center mt-4">
+    <h2 class="fw-bold" style="color: #27ae60;">GIỎ HÀNG CỦA BẠN</h2>
+    <p class="text-muted mb-0">Hiện đang có <span class="fw-bold text-success">@Model.Sum(m => m.Quantity) sản phẩm</span> trong giỏ</p>
+</div>
+
+<div class="container mb-5 mt-4">
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="text-center py-5">
+            <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" style="width: 100px; opacity: 0.5" class="mb-3">
+            <p class="fs-5 text-muted">Giỏ hàng của bạn đang trống.</p>
+            <a href="@Url.Action("Tera", "Products")" class="btn btn-success rounded-pill px-4">Mua sắm ngay</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="bg-white p-4 rounded-3 shadow-sm mb-4">
+                    <div class="table-responsive">
+                        <table class="table table-cart mb-0 align-middle">
+                            <thead class="text-secondary">
+                                <tr>
+                                    <th style="width:40%">Sản phẩm</th>
+                                    <th style="width:15%">Đơn giá</th>
+                                    <th style="width:25%">Số lượng</th>
+                                    <th style="width:15%">Thành tiền</th>
+                                    <th style="width:5%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="cart-item border-bottom">
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="~/images/@item.ProductImage" class="cart-img rounded" style="width: 70px; height: 70px; object-fit: cover;" alt="Sp" onerror="this.src='https://via.placeholder.com/70'" />
+                                                <div class="product-name ms-3">
+                                                    <a href="@Url.Action("Single", "Products", new { id = item.ProductId })" class="text-decoration-none text-dark fw-bold">
+                                                        @item.ProductName
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-secondary">
+                                            @String.Format("{0:#,##0} ₫", item.Price)
+                                        </td>
+                                        <td>
+                                            @using (Html.BeginForm("UpdateCart", "Cart", new { productId = item.ProductId }))
+                                            {
+                                                <div class="d-flex align-items-center border rounded px-2" style="width: fit-content;">
+                                                    <a href="#" onclick="var qty = this.nextElementSibling; qty.value = parseInt(qty.value) - 1; this.closest('form').submit(); return false;" class="btn btn-sm text-secondary p-0">
+                                                        <i class="fa fa-minus"></i>
+                                                    </a>
+
+                                                    <input type="number" name="quantity" value="@item.Quantity" min="1" max="99"
+                                                           class="form-control border-0 shadow-none text-center p-1"
+                                                           style="width: 40px; background: transparent;"
+                                                           onchange="this.form.submit()" />
+
+                                                    <a href="#" onclick="var qty = this.previousElementSibling; qty.value = parseInt(qty.value) + 1; this.closest('form').submit(); return false;" class="btn btn-sm text-secondary p-0">
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            }
+                                        </td>
+                                        <td class="fw-bold text-success">
+                                            @String.Format("{0:#,##0} ₫", item.Total)
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("RemoveFromCart", "Cart", new { productId = item.ProductId })"
+                                               class="text-danger remove-item"
+                                               onclick="return confirm('Xóa sản phẩm này?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <a href="@Url.Action("Tera", "Products")" class="btn btn-outline-secondary rounded-pill">
+                    <i class="fa fa-arrow-left me-2"></i> Tiếp tục mua sắm
+                </a>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="cart-summary bg-white p-4 rounded-3 shadow-sm sticky-top" style="top: 20px;">
+                    <h5 class="fw-bold mb-4">Cộng giỏ hàng</h5>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Tạm tính</span>
+                        <span class="fw-bold">@String.Format("{0:#,##0} ₫", ViewBag.TotalAmount)</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Phí vận chuyển</span>
+                        <span class="text-success">Miễn phí</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fw-bold fs-5">Tổng cộng</span>
+                        <span class="fw-bold fs-4 text-danger">@String.Format("{0:#,##0} ₫", ViewBag.TotalAmount)</span>
+                    </div>
+
+                    <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm" style="background-color: #27ae60; border: none;">
+                        Tiến hành thanh toán
+                    </a>
+
+                    <div class="mt-3 text-center">
+                        <small class="text-muted"><i class="fa fa-shield-alt me-1"></i> Bảo mật thanh toán 100%</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

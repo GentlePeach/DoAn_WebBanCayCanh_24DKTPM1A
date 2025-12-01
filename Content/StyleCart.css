@@ -1,0 +1,296 @@
+/* =========================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================= */
+:root {
+    --primary-color: #27ae60;   /* Xanh lá cây chủ đạo */
+    --secondary-color: #2c3e50; /* Xanh than đậm */
+    --accent-color: #e67e22;    /* Cam tạo điểm nhấn */
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .btn {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    background: #fff; /* Đảm bảo navbar có nền trắng */
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.icon-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.7rem;
+}
+
+/* =========================================
+   3. HERO SLIDER (Trang chủ)
+   ========================================= */
+.carousel-item {
+    height: 60vh;
+    min-height: 360px;
+    max-height: 700px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    bottom: 20%;
+}
+
+.carousel-caption h5 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #fff;
+}
+
+/* Responsive Slider */
+@media (max-width: 992px) {
+    .carousel-item { height: 50vh; min-height: 300px; }
+    .carousel-caption { bottom: 15%; padding: 1rem; }
+    .carousel-caption h5 { font-size: 1.8rem; }
+}
+@media (max-width: 576px) {
+    .carousel-item { height: 38vh; min-height: 200px; }
+    .carousel-caption { bottom: 8%; padding: 0.75rem; }
+    .carousel-caption h5 { font-size: 1.2rem; }
+}
+
+.btn-main {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-main:hover {
+    background-color: transparent;
+    color: white;
+}
+
+/* =========================================
+   CART PAGE STYLES
+   ========================================= */
+
+/* 1. Cart Header - Phần tiêu đề đầu trang */
+.cart-header {
+    padding: 40px 0 30px;
+}
+
+/* 2. Cart Table - Bảng sản phẩm */
+.table-cart {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-cart th {
+    border: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.table-cart td {
+    vertical-align: middle;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Xóa gạch chân ở hàng cuối cùng để đẹp hơn */
+.table-cart tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 3. Product Details - Ảnh và Tên sản phẩm */
+.cart-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.product-name a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.product-name a:hover {
+    color: var(--primary-color);
+}
+
+/* 4. Price & Total - Giá tiền */
+.item-price {
+    font-weight: 600;
+    color: #555;
+}
+
+.item-total {
+    font-size: 1.1rem;
+    /* Màu sắc đã được class text-success của Bootstrap xử lý, 
+       nhưng thêm weight để nổi bật hơn */
+    font-weight: 800; 
+}
+
+/* 5. Quantity Control - Nút tăng giảm số lượng */
+.btn-qty {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Hình tròn */
+    border: 1px solid #eee;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.btn-qty:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin: 0 5px;
+}
+
+.quantity-input:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* 6. Remove Button - Nút xóa */
+.remove-item {
+    color: #ccc !important;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.remove-item:hover {
+    color: #e74c3c !important; /* Màu đỏ khi hover */
+    transform: scale(1.2);
+}
+
+/* 7. Cart Summary - Khung tính tiền bên phải */
+.cart-summary {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    /* Đảm bảo nền trắng khi dùng sticky-top */
+    background-color: #fff; 
+    border: 1px solid #f0f0f0;
+}
+
+.cart-summary hr {
+    margin: 20px 0;
+    border-color: #eee;
+}
+
+/* 8. Checkout Button - Nút thanh toán */
+.btn-checkout {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-checkout:hover {
+    background-color: #219150; /* Màu đậm hơn chút */
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+       footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        footer a:hover {
+            color: var(--primary-color);
+        }
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }

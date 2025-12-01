@@ -1,0 +1,136 @@
+﻿@model IEnumerable<DoAn_WebBanCayCanh_24DKTPM1A.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+
+<section class="container py-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h6 class="text-success fw-bold text-uppercase">Danh mục nổi bật</h6>
+            <h2 class="fw-bold">Bạn quan tâm đến điều gì?</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="@Url.Action("Tera", "Products")" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="~/images/pro_1.jpg" alt="Terrarium">
+                    <div class="category-overlay">
+                        <h3>Terrarium / Bể Bán Cạn</h3>
+                        <p>Rêu, Dương xỉ, Cẩm nhung & Phụ kiện.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="@Url.Action("Aqua", "Products")" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="~/images//pro_2.jpg" alt="Aquarium">
+                    <div class="category-overlay">
+                        <h3>Aquarium / Thủy Sinh</h3>
+                        <p>Cá cảnh, Tép màu, Cây thủy sinh & Layout.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="@Url.Action("About", "Home")" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="~/images//pro_3.jpg" alt="About">
+                    <div class="category-overlay">
+                        <h3>Về Chúng Tôi</h3>
+                        <p>Câu chuyện đam mê của Còi Garden.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Sản phẩm mới nhất</h2>
+            <a href="@Url.Action("Tera", "Products")" class="btn btn-outline-success">Xem tất cả <i class="fa fa-arrow-right"></i></a>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-6">
+
+                    <div class="product-card">
+                        <span class="badge-new">Mới</span>
+
+                        <div class="product-img-wrap">
+                            <a href="@Url.Action("Single", "Products", new { id = item.Id })">
+                                <img src="~/images/@item.Image" alt="@item.Name" style="width:100%; height:auto;">
+                            </a>
+                        </div>
+
+                        <div class="product-body">
+                            <h5 class="product-title">
+                                <a href="@Url.Action("Single", "Products", new { id = item.Id })" class="text-decoration-none">
+                                    @item.Name
+                                </a>
+                            </h5>
+
+                            <div class="product-price">
+                                @string.Format("{0:#,##0} đ", item.Price)
+                            </div>
+                        </div>
+
+                        <a href="@Url.Action("AddToCart", "Cart", new { productId = item.Id, url = Request.Url.ToString() })"
+                           class="btn btn-outline-success w-100">
+                            <i class="fa fa-cart-plus me-1"></i> Thêm giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <i class="fa-solid fa-truck-fast feature-icon"></i>
+                <h4>Vận chuyển an toàn</h4>
+                <p class="text-muted">Đóng gói chuyên nghiệp, bảo hành bể vỡ khi vận chuyển.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <i class="fa-solid fa-hand-holding-droplet feature-icon"></i>
+                <h4>Hướng dẫn chăm sóc</h4>
+                <p class="text-muted">Tư vấn kỹ thuật trọn đời cho từng hệ sinh thái.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <i class="fa-solid fa-gift feature-icon"></i>
+                <h4>Quà tặng hấp dẫn</h4>
+                <p class="text-muted">Tặng kèm phụ kiện chăm sóc cho đơn hàng trên 1 triệu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 text-white" style="background-color: var(--primary-color);">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Đăng ký nhận tin</h2>
+        <p class="mb-4">Nhận thông báo về các mẫu bể mới và kỹ thuật chăm sóc cây hàng tuần.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg" placeholder="Email của bạn...">
+                    <button class="btn btn-dark" type="button">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

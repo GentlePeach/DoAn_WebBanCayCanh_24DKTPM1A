@@ -1,0 +1,55 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DoAn_WebBanCayCanh_24DKTPM1A.Models.Product>
+@{
+    ViewBag.Title = "Tera";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/StyleTera.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/tera.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+}
+<div class="container mb-5 pt-4">
+    <div class="row">
+        <div class="col-lg-3 mb-4">
+
+            <h5 class="sidebar-title">Danh mục</h5>
+            <ul class="list-group" id="category-filter">
+                <li class="list-group-item active cursor-pointer" onclick="filterCategory(this, null)">Tất cả sản phẩm</li>
+                <li class="list-group-item cursor-pointer" onclick="filterCategory(this, 1)">Bể kín (Closed)</li>
+                <li class="list-group-item cursor-pointer" onclick="filterCategory(this, 2)">Bể hở (Open)</li>
+                <li class="list-group-item cursor-pointer" onclick="filterCategory(this, 3)">Tiểu cảnh Rêu</li>
+                <li class="list-group-item cursor-pointer" onclick="filterCategory(this, 4)">Đèn & Phụ kiện</li>
+            </ul>
+
+            <h5 class="sidebar-title mt-4">Mức giá</h5>
+            <div class="form-check mb-2">
+                <input class="form-check-input price-checkbox" type="checkbox" id="p1" value="0-500000" onchange="filterPrice(this)">
+                <label class="form-check-label text-secondary" for="p1">Dưới 500k</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input price-checkbox" type="checkbox" id="p2" value="500000-1000000" onchange="filterPrice(this)">
+                <label class="form-check-label text-secondary" for="p2">500k - 1 triệu</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input price-checkbox" type="checkbox" id="p3" value="1000000-99000000" onchange="filterPrice(this)">
+                <label class="form-check-label text-secondary" for="p3">Trên 1 triệu</label>
+            </div>
+
+            <div class="mt-4 rounded overflow-hidden shadow-sm">
+                <img src="~/images/pro_1.jpg" class="w-100" style="opacity: 0.8">
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div id="product-list-container">
+                @Html.Partial("_TeraGrid", Model)
+            </div>
+        </div>
+    </div>
+</div>

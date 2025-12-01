@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="529ecc74e004425e8db30892c661a22d" Name="Diagram1">
+        <EntityTypeShape EntityType="CoiGardenDBModel.Category" Width="1.5" PointX="2.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.Order" Width="1.5" PointX="2.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.OrderDetail" Width="1.5" PointX="4.375" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.Product" Width="1.5" PointX="0.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.ProductImage" Width="1.5" PointX="6.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.Review" Width="1.5" PointX="8.375" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__Product__Categor__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__OrderDeta__Order__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__OrderDeta__Produ__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__ProductIm__Produ__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__Review__ProductI__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

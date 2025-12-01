@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>@ViewBag.Title - Còi Garden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="Chuyên cung cấp bể bán cạn, hồ thủy sinh, phụ kiện setup và sinh vật cảnh chất lượng cao.">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Style.css">
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+   
+    @RenderSection("Styles", required: false)
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <i class="fa fa-leaf"></i>òi Garden
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("About", "Home")">Về chúng tôi</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Tera", "Products")" data-bs-toggle="dropdown">Terrarium</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@Url.Action("Tera", "Products")">Bể kín (Closed)</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Tera", "Products")">Tiểu cảnh rêu</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Tera", "Products")">Phụ kiện setup</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Aqua", "Products")" data-bs-toggle="dropdown">Aquarium</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@Url.Action("Aqua", "Products")">Hồ thủy sinh</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Aqua", "Products")">Cá & Tép cảnh</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Aqua", "Products")">Lũa & Đá</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact", "Home")">Liên hệ</a></li>
+                </ul>
+
+                <div class="d-flex ms-3 gap-2 align-items-center">
+                    <form action="@Url.Action("Search", "Products")" method="get" class="d-flex align-items-center">
+                        <input type="text" name="keyword" class="form-control me-2 rounded-pill"
+                               placeholder="Tìm cây cảnh, bể cá..."
+                               value="@ViewBag.Keyword"
+                               style="width: 200px; border-color: #27ae60;">
+
+                        <button type="submit" class="btn btn-search-custom rounded-circle" style="width: 40px; height: 40px;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+
+                    <a  href="@Url.Action("Cart", "Cart")" class="nav-link position-relative">
+                        <i class="fa fa-shopping-cart fa-lg"></i>
+
+                        @if (Session["CartCount"] != null && (int)Session["CartCount"] > 0)
+                        {
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                                @Session["CartCount"]
+                            </span>
+                        }
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    @if (ViewBag.ShowCarousel != null && ViewBag.ShowCarousel.ToString().ToLower() == "true")
+    {
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h5>Thế giới Terrarium</h5>
+                        <p class="d-none d-md-block text-white fs-5">Mang cả khu rừng nhiệt đới vào không gian sống của bạn.</p>
+                        <a href="@Url.Action("About", "Home")" class="btn btn-main mt-3">Khám phá ngay</a>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h5>Nghệ thuật Thủy Sinh</h5>
+                        <p class="d-none d-md-block text-white fs-5">Thư giãn tuyệt đối với hệ sinh thái dưới nước.</p>
+                        <a href="@Url.Action("Aqua", "Products")" class="btn btn-main mt-3">Xem mẫu bể đẹp</a>
+                    </div>
+                </div>
+
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h5>Cửa Hàng Cây Xanh</h5>
+                        <p class="d-none d-md-block text-white fs-5">Các sản phẩm tiêu biểu và phụ kiện chăm sóc.</p>
+                        <a href="@Url.Action("Tera", "Products")" class="btn btn-main mt-3">Mua sắm ngay</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    }
+
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h4 class="mb-3 text-success">Còi Garden</h4>
+                    <p>Nơi khơi nguồn đam mê với thiên nhiên thu nhỏ. Chúng tôi cung cấp giải pháp trọn gói cho không gian xanh của bạn.</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/ngoc.phu.727639"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/dan_nogc_phu/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/MixiGaming3con"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/explore"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="mb-3">Về Còi Garden</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="#">Tuyển dụng</a></li>
+                        <li class="mb-2"><a href="#">Điều khoản</a></li>
+                        <li class="mb-2"><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="mb-3">Sản phẩm</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="@Url.Action("Tera", "Products")">Terrarium</a></li>
+                        <li class="mb-2"><a href="@Url.Action("Aqua", "Products")">Aquarium</a></li>
+                        <li class="mb-2"><a href="@Url.Action("Aqua", "Products")">Phụ kiện</a></li>
+                        <li class="mb-2"><a href="@Url.Action("Tera", "Products")">Cây cảnh</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Thông tin liên hệ</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fa fa-map-marker-alt me-2"></i> 25, Đường số 12,Tăng Nhơn Phú B,Thủ Đức </li>
+                        <li class="mb-2"><i class="fa fa-phone me-2"></i> 0909.123.456</li>
+                        <li class="mb-2"><i class="fa fa-envelope me-2"></i> dphu250905@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-3 border-secondary">
+            <div class="text-center text-muted small">
+                &copy; 2023 Còi Garden. All Rights Reserved. Designed by You.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>// Cấu hình Toastr cho đẹp
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right", // Hiện góc trên bên phải
+            "timeOut": "3000" // Tự tắt sau 3 giây
+        }
+
+        // Kiểm tra xem Controller có gửi tin nhắn không
+        @if (TempData["Notification"] != null)
+        {
+            <text>
+                toastr.success('@TempData["Notification"]');
+            </text>
+        }</script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
