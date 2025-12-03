@@ -1,0 +1,148 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Product
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-circle-info"></i> Chi tiết sản phẩm: <strong>@Model.Name</strong>
+</div>
+
+<div class="card-box">
+    <div class="row">
+        <div class="col-md-7" style="border-right: 1px solid #eee;">
+            <h4 class="text-primary" style="margin-bottom:20px;">Thông tin chung</h4>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="detail-label">Tên sản phẩm:</span>
+                    <div class="detail-value">@Model.Name</div>
+                </div>
+                <div class="col-md-6">
+                    <span class="detail-label">Danh mục:</span>
+                    <div class="detail-value">
+                        @if (Model.Category != null)
+                        {
+                            <span class="badge badge-info" style="background-color:#17a2b8; color:white; padding:8px">
+                                @Model.Category.Name
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="detail-label">Alias (SEO Link):</span>
+                    <div class="detail-value text-muted">@Model.Alias</div>
+                </div>
+                <div class="col-md-6">
+                    <span class="detail-label">Kích thước:</span>
+                    <div class="detail-value">@(string.IsNullOrEmpty(Model.Size) ? "Chưa cập nhật" : Model.Size)</div>
+                </div>
+            </div>
+
+            <span class="detail-label">Mô tả sản phẩm:</span>
+            <div class="detail-value" style="background:#fff; border:1px dashed #ccc; padding:15px; border-radius:5px;">
+                @if (!string.IsNullOrEmpty(Model.Description))
+                {
+                    @Html.Raw(Model.Description.Replace("\n", "<br />"))
+                }
+                else
+                {
+                    <i>Chưa có mô tả.</i>
+                }
+            </div>
+
+            <div class="stats-box">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <i class="fa-regular fa-calendar text-muted"></i><br />
+                        <small>Ngày tạo</small><br />
+                        <strong>@(Model.CreatedDate.HasValue ? Model.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")</strong>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa-solid fa-cart-shopping text-muted"></i><br />
+                        <small>Đã bán</small><br />
+                        <strong>@Model.DaBan</strong>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa-solid fa-eye text-muted"></i><br />
+                        <small>Lượt xem</small><br />
+                        <strong>@Model.LuotXem</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <h4 class="text-primary" style="margin-bottom:20px;">Hình ảnh & Giá bán</h4>
+
+            <div class="text-center" style="margin-bottom:20px;">
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="~/images/@Model.Image" style="max-width:100%; max-height:300px; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                }
+                else
+                {
+                    <div style="height:200px; background:#eee; display:flex; align-items:center; justify-content:center; border-radius:8px;">
+                        <span>Chưa có hình ảnh</span>
+                    </div>
+                }
+            </div>
+
+            <div style="background:#f1f8e9; padding:15px; border-radius:8px; margin-bottom:20px;">
+                <span class="detail-label">Giá bán hiện tại:</span>
+                <div>
+                    <span class="price-tag">@string.Format("{0:0,0}", Model.Price) đ</span>
+                    @if (Model.PriceSale > 0)
+                    {
+                        <span class="price-sale">@string.Format("{0:0,0}", Model.PriceSale) đ</span>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="detail-label">Tồn kho:</span>
+                    <div class="detail-value" style="font-size:18px; font-weight:bold;">@Model.Quantity</div>
+                </div>
+                <div class="col-md-6">
+                    <span class="detail-label">Trạng thái:</span>
+                    <div class="detail-value">
+                        @if (Model.Quantity > 0)
+                        {
+                            <span class="badge badge-success" style="background-color:#28a745; padding:8px;">
+                                <i class="fa-solid fa-check"></i> Còn hàng
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger" style="background-color:#dc3545; padding:8px;">
+                                <i class="fa-solid fa-xmark"></i> Hết hàng
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="text-right">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </a>
+                <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">
+                    <i class="fa-solid fa-pen-to-square"></i> Sửa sản phẩm
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

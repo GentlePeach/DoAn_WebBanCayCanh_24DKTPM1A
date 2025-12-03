@@ -1,0 +1,41 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Category
+@{
+    ViewBag.Title = "Chi tiết danh mục";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-circle-info"></i> Chi tiết danh mục
+</div>
+
+<div class="card-box" style="max-width: 600px; margin: 0 auto;">
+    <h3 class="text-center text-primary" style="margin-bottom:30px;">@Model.Name</h3>
+
+    <div class="row">
+        <div class="col-md-6 text-right" style="font-weight:bold; color:#555;">
+            ID Danh mục:
+        </div>
+        <div class="col-md-6">
+            #@Model.Id
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6 text-right" style="font-weight:bold; color:#555;">
+            Alias (Link):
+        </div>
+        <div class="col-md-6">
+            <span class="badge badge-light" style="border:1px solid #ccc">@Model.Alias</span>
+        </div>
+    </div>
+
+    <hr />
+    <div class="text-center">
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">Sửa</a>
+    </div>
+</div>

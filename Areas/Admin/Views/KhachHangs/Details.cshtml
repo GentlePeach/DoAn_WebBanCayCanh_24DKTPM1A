@@ -1,0 +1,62 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.KhachHang
+@{
+    ViewBag.Title = "Chi tiết khách hàng";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .info-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-circle-info"></i> Thông tin chi tiết
+</div>
+
+<div class="card-box">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <div style="font-size: 80px; color: #ccc; margin-top: 20px;">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+            <h3 class="text-primary">@Model.HoTen</h3>
+            <span class="badge badge-success">Khách hàng thành viên</span>
+        </div>
+        <div class="col-md-8">
+            <h4 class="text-primary">Thông tin liên hệ</h4>
+            <div class="info-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="detail-label">Tài khoản:</span> @Model.TaiKhoan
+                    </div>
+                    <div class="col-md-6">
+                        <span class="detail-label">Ngày đăng ký:</span> @(Model.NgayTao.HasValue ? Model.NgayTao.Value.ToString("dd/MM/yyyy HH:mm") : "N/A")
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-group">
+                <span class="detail-label"><i class="fa-solid fa-phone"></i> Điện thoại:</span> @Model.DienThoai <br />
+                <span class="detail-label"><i class="fa-solid fa-envelope"></i> Email:</span> @Model.Email <br />
+                <span class="detail-label"><i class="fa-solid fa-location-dot"></i> Địa chỉ:</span> @Model.DiaChi
+            </div>
+
+            <div class="text-right">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+                <a href="@Url.Action("Edit", new { id = Model.MaKH })" class="btn btn-warning">Sửa thông tin</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Đăng ký thành viên";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-white border-0 pt-4 pb-0 text-center">
+                    <h3 class="fw-bold text-success">ĐĂNG KÝ TÀI KHOẢN</h3>
+                    <p class="text-muted small">Trở thành thành viên của Còi Garden</p>
+                </div>
+
+                <div class="card-body p-4">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger text-center">
+                            <i class="fa fa-exclamation-circle me-1"></i> @ViewBag.Error
+                        </div>
+                    }
+
+                    <form action="@Url.Action("Register", "Account")" method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">Họ và tên</label>
+                            <input type="text" name="HoTen" class="form-control rounded-pill" required placeholder="VD: Nguyễn Văn A" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">Tên đăng nhập</label>
+                            <input type="text" name="TaiKhoan" class="form-control rounded-pill" required placeholder="Viết liền không dấu" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">Mật khẩu</label>
+                            <input type="password" name="MatKhau" class="form-control rounded-pill" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">Email</label>
+                            <input type="email" name="Email" class="form-control rounded-pill" required placeholder="email@example.com" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">Số điện thoại</label>
+                            <input type="tel" name="DienThoai" class="form-control rounded-pill" required />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary">Địa chỉ</label>
+                            <textarea name="DiaChi" class="form-control" rows="2" placeholder="Số nhà, đường, phường..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm"
+                                style="background: linear-gradient(45deg, #27ae60, #2ecc71); border: none;">
+                            Đăng ký ngay
+                        </button>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="text-center">
+                        <span class="text-muted">Đã có tài khoản?</span>
+                        <a href="@Url.Action("Login", "Account")" class="text-success fw-bold text-decoration-none ms-1">
+                            Đăng nhập tại đây
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,11 +12,11 @@
 }
 
 @section Scripts {
+    <script src="~/Scripts/aqua.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
-
-    <script src="~/Scripts/aqua.js"></script>
 }
 
 <div class="container mb-5 pt-4">
@@ -58,3 +58,6 @@
         </div>
     </div>
 </div>
+<script>
+    var aquaUrl = '@Url.Action("Aqua", "Products")';
+</script>

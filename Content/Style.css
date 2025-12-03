@@ -361,3 +361,55 @@ a.btn.btn-add:hover i,
 button.btn.btn-add:hover i {
  transform: rotate(-10deg) scale(1.1);
 }
+
+/* Footer & layout fixes: make footer stick to bottom when content is short */
+html, body {
+ height:100%;
+}
+body {
+ display: flex;
+ flex-direction: column;
+ min-height:100vh;
+}
+.main-content {
+ flex:10 auto; /* grow to fill available space */
+ padding-bottom:40px; /* ensure spacing above footer */
+}
+footer {
+ flex-shrink:0;
+ padding:40px0;
+}
+
+/* Improve table responsiveness in history page */
+@media (max-width:768px) {
+ .table-responsive-history {
+ overflow-x: auto;
+ }
+}
+
+/* Register button on home login section */
+.btn-register {
+ background: transparent;
+ border:2px solid rgba(255,255,255,0.85);
+ color: #fff !important;
+ padding:8px18px;
+ font-weight:600;
+}
+.btn-register:hover {
+ background: rgba(255,255,255,0.08);
+ color: #fff !important;
+}
+.btn-main {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-color);
+}
+
+    .btn-main:hover {
+        background-color: transparent;
+        color: white;
+    }

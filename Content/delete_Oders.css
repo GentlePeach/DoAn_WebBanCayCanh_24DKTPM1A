@@ -1,0 +1,94 @@
+﻿/* Tiêu đề trang */
+.delete-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+    .delete-title span {
+        color: #2e7d32;
+    }
+
+/* Card chứa thông tin đơn */
+.delete-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #e53935;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+}
+
+/* Tiêu đề thông tin */
+.order-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* Layout dt/dd */
+.delete-info dt {
+    width: 180px;
+    float: left;
+    clear: left;
+    font-weight: 600;
+    color: #1b5e20;
+    padding: 6px 0;
+}
+
+.delete-info dd {
+    margin-left: 190px;
+    padding: 6px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Khung cảnh báo */
+.delete-warning {
+    background: #ffebee;
+    padding: 15px;
+    border-left: 4px solid #d32f2f;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #c62828;
+    font-weight: 600;
+}
+
+/* Nút xóa */
+.btn-danger-green {
+    background: #d32f2f;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+    .btn-danger-green:hover {
+        background: #b71c1c;
+    }
+
+/* Nút trở về */
+.btn-cancel {
+    margin-left: 12px;
+    padding: 10px 18px;
+    background: #2e7d32;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+    .btn-cancel:hover {
+        background: #1b5e20;
+    }
+
+/* Căn chỉnh nút */
+.delete-actions {
+    margin-top: 20px;
+}

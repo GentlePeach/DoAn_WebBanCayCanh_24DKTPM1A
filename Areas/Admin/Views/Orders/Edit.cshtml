@@ -1,0 +1,96 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Order
+
+@{
+    ViewBag.Title = "Chỉnh sửa đơn hàng";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/create_Oders.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<h2 class="page-title">
+    <i class="fa-solid fa-pen-to-square"></i> Chỉnh sửa đơn hàng
+</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card-box card-green">
+        <div class="section-title">
+            <i class="fa-solid fa-user"></i> Thông tin khách hàng
+        </div>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label>Tên khách hàng</label>
+            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Số điện thoại</label>
+            @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Địa chỉ</label>
+            @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Khách hàng hệ thống</label>
+            @Html.DropDownList("MaKH", null, "--- Chọn khách hàng ---", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="card-box">
+        <div class="section-title">
+            <i class="fa-solid fa-file-invoice-dollar"></i> Thông tin đơn hàng
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <label>Tổng tiền</label>
+            @Html.EditorFor(model => model.TotalAmount, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Trạng thái đơn</label>
+            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Thanh toán</label>
+            @Html.EditorFor(model => model.PaymentStatus, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Ngày tạo</label>
+            @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Ghi chú</label>
+            @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-save"></i> Lưu thay đổi
+        </button>
+
+        @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+}

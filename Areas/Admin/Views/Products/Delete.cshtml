@@ -1,0 +1,108 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Product
+
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .delete-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ffeeba;
+            margin-bottom: 20px;
+        }
+
+        .product-preview-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .product-info-label {
+            font-weight: 600;
+            color: #555;
+            width: 120px;
+            display: inline-block;
+        }
+    </style>
+}
+
+<h2 class="page-title text-danger">
+    <i class="fa-solid fa-trash-can"></i> Xóa sản phẩm
+</h2>
+
+<div class="delete-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Cảnh báo:</strong> Hành động này sẽ xóa sản phẩm khỏi cơ sở dữ liệu và <u>không thể khôi phục</u>. Bạn có chắc chắn không?
+</div>
+
+<div class="card-box" style="border-top: 3px solid #dc3545;">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="~/images/@Model.Image" class="product-preview-img" />
+            }
+            else
+            {
+                <div style="height:200px; background:#eee; display:flex; align-items:center; justify-content:center; border-radius:8px;">
+                    <span>Không có ảnh</span>
+                </div>
+            }
+            <div style="margin-top:10px; font-weight:bold; color:#555">ID: #@Model.Id</div>
+        </div>
+
+        <div class="col-md-8">
+            <h3 class="text-primary" style="margin-top:0">@Model.Name</h3>
+            <p class="text-muted">Alias: @Model.Alias</p>
+            <hr />
+
+            <p>
+                <span class="product-info-label">Danh mục:</span>
+                @if (Model.Category != null)
+                {
+                    <span class="badge badge-info" style="background-color:#17a2b8; color:white">@Model.Category.Name</span>
+                }
+            </p>
+
+            <p>
+                <span class="product-info-label">Giá bán:</span>
+                <span style="color:red; font-weight:bold; font-size:16px">@string.Format("{0:0,0}", Model.Price) đ</span>
+            </p>
+
+            <p>
+                <span class="product-info-label">Tồn kho:</span>
+                <b>@Model.Quantity</b> sản phẩm
+            </p>
+
+            <p>
+                <span class="product-info-label">Đã bán:</span>
+                @Model.DaBan
+            </p>
+
+            <p>
+                <span class="product-info-label">Ngày tạo:</span>
+                @(Model.CreatedDate.HasValue ? Model.CreatedDate.Value.ToString("dd/MM/yyyy") : "N/A")
+            </p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div style="margin-top:30px">
+                    <button type="submit" class="btn btn-danger btn-lg">
+                        <i class="fa-solid fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a href="@Url.Action("Index")" class="btn btn-secondary btn-lg" style="margin-left:10px">
+                        <i class="fa-solid fa-xmark"></i> Hủy bỏ
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

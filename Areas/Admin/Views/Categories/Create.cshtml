@@ -1,0 +1,58 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Category
+
+@{
+    ViewBag.Title = "Thêm danh mục";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-plus-circle"></i> Thêm danh mục mới
+</div>
+
+<div class="card-box" style="max-width: 600px; margin: 0 auto;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h4 class="text-primary text-success " style="margin-bottom:20px;">Thông tin danh mục</h4>
+
+        <div class="form-group">
+            <label>Tên danh mục <span class="text-danger">*</span></label>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ví dụ: Cây để bàn" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label>Alias (Tự động tạo)</label>
+            @Html.EditorFor(model => model.Alias, new { htmlAttributes = new { @class = "form-control", @placeholder = "cay-de-ban" } })
+            @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+        </div>
+
+        <hr />
+        <div class="text-right">
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Lưu danh mục</button>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#Name").on("keyup", function () {
+                var name = $(this).val();
+                var alias = name.toLowerCase()
+                    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                    .replace(/đ/g, 'd').replace(/Đ/g, 'd')
+                    .replace(/[^a-z0-9 ]/g, '')
+                    .replace(/\s+/g, '-');
+                $("#Alias").val(alias);
+            });
+        });
+    </script>
+}

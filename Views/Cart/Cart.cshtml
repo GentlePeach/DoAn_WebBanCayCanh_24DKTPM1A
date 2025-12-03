@@ -5,7 +5,7 @@
     ViewBag.Title = "Giỏ hàng";
     Layout = "~/Views/Shared/_TeraLayout.cshtml";
 }
-
+@Html.AntiForgeryToken()
 @section Styles {
     <link href="~/Content/StyleCart.css" rel="stylesheet" />
 }

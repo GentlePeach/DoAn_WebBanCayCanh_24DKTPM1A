@@ -13,6 +13,19 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Alias" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaiKhoan" Type="varchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+          <Property Name="DienThoai" Type="varchar" MaxLength="30" />
+          <Property Name="NgayTao" Type="datetime" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="Id" />
@@ -22,6 +35,12 @@
           <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Status" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaKH" Type="int" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -32,6 +51,8 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -71,6 +92,18 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedDate" Type="datetime" />
         </EntityType>
+        <Association Name="FK__Order__MaKH__04E4BC85">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__OrderDeta__Order__5DCAEF64">
           <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
@@ -133,11 +166,16 @@
         </Association>
         <EntityContainer Name="CoiGardenDBModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Order__MaKH__04E4BC85" Association="Self.FK__Order__MaKH__04E4BC85">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
           <AssociationSet Name="FK__OrderDeta__Order__5DCAEF64" Association="Self.FK__OrderDeta__Order__5DCAEF64">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetail" EntitySet="OrderDetail" />
@@ -182,6 +220,13 @@
           <Property Name="Status" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__5DCAEF64" FromRole="Order" ToRole="OrderDetail" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaKH" Type="Int32" />
+          <NavigationProperty Name="KhachHang" Relationship="CoiGardenDBModel.FK__Order__MaKH__04E4BC85" FromRole="Order" ToRole="KhachHang" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -194,6 +239,8 @@
           <Property Name="Quantity" Type="Int32" />
           <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__Order__5DCAEF64" FromRole="OrderDetail" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK__OrderDeta__Produ__5EBF139D" FromRole="OrderDetail" ToRole="Product" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -326,7 +373,38 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="Review" EntitySet="Reviews" />
           </AssociationSet>
+          <EntitySet Name="KhachHangs" EntityType="CoiGardenDBModel.KhachHang" />
+          <AssociationSet Name="FK__Order__MaKH__04E4BC85" Association="CoiGardenDBModel.FK__Order__MaKH__04E4BC85">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Orders" Relationship="CoiGardenDBModel.FK__Order__MaKH__04E4BC85" FromRole="KhachHang" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK__Order__MaKH__04E4BC85">
+          <End Type="CoiGardenDBModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+          <End Type="CoiGardenDBModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -345,6 +423,12 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="CoiGardenDBModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
@@ -356,6 +440,8 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="CoiGardenDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -402,6 +488,20 @@
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="CoiGardenDBModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

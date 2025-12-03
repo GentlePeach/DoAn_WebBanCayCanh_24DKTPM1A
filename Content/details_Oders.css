@@ -1,0 +1,86 @@
+﻿
+/* Tiêu đề */
+h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2e7d32; /* xanh lá đậm */
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #4caf50;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Bảng sản phẩm trong đơn */
+table.table {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+}
+
+    table.table thead {
+        background: #4caf50;
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    table.table tbody tr:hover {
+        background-color: #e8f5e9;
+        transition: 0.2s;
+    }
+
+table img {
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Thông tin đơn hàng */
+.order-info {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    border-left: 5px solid #4caf50;
+}
+
+    .order-info dt {
+        font-weight: 600;
+        color: #2e7d32;
+        margin-top: 12px;
+    }
+
+    .order-info dd {
+        margin-left: 10px;
+        padding: 3px 0;
+        font-size: 15px;
+    }
+
+/* Nút */
+a.btn-green {
+    background: #2e7d32;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+    a.btn-green:hover {
+        background: #1b5e20;
+    }
+
+a.btn-link-custom {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    a.btn-link-custom:hover {
+        text-decoration: underline;
+    }
+
+

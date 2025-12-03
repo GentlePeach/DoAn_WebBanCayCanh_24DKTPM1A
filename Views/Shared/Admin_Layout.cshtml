@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>@ViewBag.Title - Còi Garden Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Style.css">
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin_Layout.css" rel="stylesheet" />
+   
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading"><i class="fa-solid fa-leaf"></i>òi Garden Admin</div>
+            <div class="list-group list-group-flush">
+
+                <a href="@Url.Action("Index", "Home", new { area = "Admin" })"
+                   class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                    <i class="fa-solid fa-gauge me-2"></i> Dashboard
+                </a>
+
+                <a href="@Url.Action("Index", "Orders", new { area = "Admin" })"
+                   class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["Controller"].ToString() == "Orders" ? "active" : "")">
+                    <i class="fa-solid fa-clipboard-list me-2"></i> Quản lý Đơn hàng
+                </a>
+
+                <a href="@Url.Action("Index", "Products", new { area = "Admin" })"
+                   class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["Controller"].ToString() == "Products" ? "active" : "")">
+                    <i class="fa-solid fa-tree me-2"></i> Quản lý Sản phẩm
+                </a>
+
+                <a href="@Url.Action("Index", "Categories", new { area = "Admin" })"
+                   class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["Controller"].ToString() == "Categories" ? "active" : "")">
+                    <i class="fa-solid fa-layer-group me-2"></i> Quản lý Danh mục
+                </a>
+
+                <a href="@Url.Action("Index", "KhachHangs", new { area = "Admin" })"
+                   class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["Controller"].ToString() == "KhachHangs" ? "active" : "")">
+                    <i class="fa-solid fa-users me-2"></i> Quản lý Khách hàng
+                </a>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+
+            @if (ViewBag.ShowCarousel != null && ViewBag.ShowCarousel.ToString().ToLower() == "true")
+            {
+                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1920&auto=format&fit=crop'); height: 300px; background-size: cover;">
+                            <div class="carousel-caption">
+                                <h5>Thế giới Terrarium</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?q=80&w=1920&auto=format&fit=crop'); height: 300px; background-size: cover;">
+                            <div class="carousel-caption">
+                                <h5>Nghệ thuật Thủy Sinh</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1920&auto=format&fit=crop'); height: 300px; background-size: cover;">
+                            <div class="carousel-caption">
+                                <h5>Cửa Hàng Cây Xanh</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <main class="main-content container-fluid">
+                @RenderBody()
+            </main>
+
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-muted small">
+                            &copy; 2023 Còi Garden Admin System.
+                        </div>
+                        <div class="col-md-6 text-end small">
+                            <span class="text-muted">Hỗ trợ kỹ thuật: 0909.123.456</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.options = { "closeButton": true, "progressBar": true, "positionClass": "toast-top-right", "timeOut": "3000" }
+        @if (TempData["Notification"] != null)
+        {
+            <text>toastr.success('@TempData["Notification"]');</text>
+        }
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

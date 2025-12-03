@@ -1,0 +1,106 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<DoAn_WebBanCayCanh_24DKTPM1A.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .pagination-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .pagination {
+            display: inline-flex;
+            list-style: none;
+        }
+
+            .pagination li a, .pagination li span {
+                padding: 6px 12px;
+                border: 1px solid #ddd;
+                margin: 2px;
+                text-decoration: none;
+                color: #333;
+                border-radius: 4px;
+            }
+
+            .pagination .active span {
+                background-color: #28a745;
+                color: white;
+                border-color: #28a745;
+            }
+    </style>
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-users"></i> Quản lý khách hàng
+</div>
+
+<p>
+    <a href="@Url.Action("Create")" class=" btn btn-success ">
+        <i class="fa-solid fa-user-plus"></i> Thêm khách hàng
+    </a>
+</p>
+
+<div class="card-box">
+    <table class="table table-hover table-admin">
+        <thead>
+            <tr>
+                <th style="width:50px">ID</th>
+                <th>Họ và Tên</th>
+                <th>Tài khoản</th>
+                <th>Liên hệ</th>
+                <th>Ngày tạo</th>
+                <th style="width:150px">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">#@item.MaKH</td>
+                    <td>
+                        <strong>@item.HoTen</strong><br />
+                        <small class="text-muted"><i class="fa-solid fa-location-dot"></i> @(item.DiaChi ?? "Chưa cập nhật")</small>
+                    </td>
+                    <td>
+                        <span class="badge badge-info" style="background-color:#17a2b8; color:white">@item.TaiKhoan</span>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-phone text-success"></i> @item.DienThoai <br />
+                        <i class="fa-solid fa-envelope text-primary"></i> @item.Email
+                    </td>
+                    <td>
+                        @(item.NgayTao.HasValue ? item.NgayTao.Value.ToString("dd/MM/yyyy") : "")
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.MaKH })" class="btn btn-sm btn-warning">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a href="@Url.Action("Details", new { id = item.MaKH })" class="btn btn-sm btn-info">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", new { id = item.MaKH })" class="btn btn-sm btn-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-6" style="padding-top:20px;">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        </div>
+        <div class="col-md-6">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+</div>

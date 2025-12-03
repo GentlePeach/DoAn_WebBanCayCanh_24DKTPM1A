@@ -11,7 +11,7 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Review
     {
         public int Id { get; set; }

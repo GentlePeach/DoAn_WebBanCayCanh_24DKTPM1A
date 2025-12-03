@@ -11,7 +11,7 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,8 +25,15 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
         public Nullable<decimal> TotalAmount { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CustomerPhone { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerEmail { get; set; }
+        public string Note { get; set; }
+        public string PaymentStatus { get; set; }
+        public Nullable<int> MaKH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

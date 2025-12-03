@@ -10,12 +10,14 @@
         <EntityTypeShape EntityType="CoiGardenDBModel.OrderDetail" Width="1.5" PointX="4.375" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CoiGardenDBModel.Product" Width="1.5" PointX="0.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CoiGardenDBModel.ProductImage" Width="1.5" PointX="6.375" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoiGardenDBModel.Review" Width="1.5" PointX="8.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.Review" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
         <AssociationConnector Association="CoiGardenDBModel.FK__Product__Categor__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="CoiGardenDBModel.FK__OrderDeta__Order__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="CoiGardenDBModel.FK__OrderDeta__Produ__5EBF139D" ManuallyRouted="false" />
         <AssociationConnector Association="CoiGardenDBModel.FK__ProductIm__Produ__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="CoiGardenDBModel.FK__Review__ProductI__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CoiGardenDBModel.KhachHang" Width="1.5" PointX="10.125" PointY="3.125" />
+        <AssociationConnector Association="CoiGardenDBModel.FK__Order__MaKH__04E4BC85" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

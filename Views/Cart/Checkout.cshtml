@@ -1,117 +1,106 @@
-﻿
+﻿@model List<DoAn_WebBanCayCanh_24DKTPM1A.Models.CartItem>
+
 @{
-    ViewBag.Title = "Checkout";
+    ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Shared/_TeraLayout.cshtml";
 }
+@Html.AntiForgeryToken()
 @section Styles {
     <link href="~/Content/StyleCheckout.css" rel="stylesheet" />
 }
 
 <div class="container py-5">
-    <div class="row g-4">
-
-        <div class="col-lg-7">
-            <h4 class="mb-3 fw-bold">Thông tin giao hàng</h4>
-            <form id="checkoutForm" class="needs-validation" novalidate>
-                <div class="checkout-box">
+    @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post, new { id = "checkoutForm" }))
+    {
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <h4 class="mb-3 fw-bold text-success">Thông tin giao hàng</h4>
+                <div class="checkout-box bg-white p-4 rounded-3 shadow-sm">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="fullName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="fullName" placeholder="VD: Nguyễn Văn A" required>
+                            <label class="form-label fw-bold">Họ và tên <span class="text-danger">*</span></label>
+                            <input type="text" name="CustomerName" class="form-control" placeholder="VD: Nguyễn Văn A" required>
                         </div>
+
                         <div class="col-md-6">
-                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" name="CustomerEmail" class="form-control" placeholder="email@example.com">
                         </div>
+
                         <div class="col-md-6">
-                            <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
-                            <input type="tel" class="form-control" id="phone" placeholder="0909xxxxxx" required>
+                            <label class="form-label fw-bold">Số điện thoại <span class="text-danger">*</span></label>
+                            <input type="tel" name="CustomerPhone" class="form-control" placeholder="09xxxxxxx" required>
                         </div>
-                        <div class="col-md-6">
-                            <label for="city" class="form-label">Tỉnh / Thành phố <span class="text-danger">*</span></label>
-                            <select class="form-select" id="city" required>
-                                <option value="">Chọn tỉnh thành...</option>
-                                <option>Hồ Chí Minh</option>
-                                <option>Hà Nội</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="district" class="form-label">Quận / Huyện <span class="text-danger">*</span></label>
-                            <select class="form-select" id="district" required>
-                                <option value="">Chọn quận huyện...</option>
-                                <option>Quận 1</option>
-                                <option>Quận 2</option>
-                            </select>
-                        </div>
+
                         <div class="col-12">
-                            <label for="address" class="form-label">Địa chỉ cụ thể <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="address" placeholder="Số nhà, tên đường..." required>
+                            <label class="form-label fw-bold">Địa chỉ nhận hàng <span class="text-danger">*</span></label>
+                            <input type="text" name="CustomerAddress" class="form-control" placeholder="Số nhà, tên đường, phường, quận, tỉnh..." required>
                         </div>
+
                         <div class="col-12">
-                            <label for="note" class="form-label">Ghi chú đơn hàng (Tùy chọn)</label>
-                            <textarea class="form-control" id="note" rows="3" placeholder="Ghi chú..."></textarea>
+                            <label class="form-label fw-bold">Ghi chú đơn hàng</label>
+                            <textarea name="Note" class="form-control" rows="3" placeholder="Ví dụ: Giao hàng giờ hành chính..."></textarea>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
 
-        <div class="col-lg-5">
-            <h4 class="mb-3 fw-bold">Đơn hàng của bạn</h4>
-            <div class="checkout-box sticky-top" style="top: 90px; z-index: 1;">
+            <div class="col-lg-5">
+                <h4 class="mb-3 fw-bold text-secondary">Đơn hàng của bạn</h4>
+                <div class="checkout-box bg-white p-4 rounded-3 shadow-sm sticky-top" style="top: 90px; z-index: 1;">
 
-                <div class="mb-4">
-                    <div class="order-item">
-                        <img src="https://images.unsplash.com/photo-1596727293773-677a284c47b5?q=80&w=200" class="order-img" alt="Sp">
-                        <div>
-                            <h6 class="mb-1 fw-bold">Bể Rêu Mini</h6>
-                            <small class="text-muted">Số lượng: 1</small>
-                            <div class="text-success fw-bold">450.000₫</div>
+                    <div class="mb-4" style="max-height: 300px; overflow-y: auto;">
+                        @foreach (var item in Model)
+                        {
+                            <div class="order-item d-flex align-items-center mb-3 border-bottom pb-2">
+                                <div class="position-relative">
+                                    <img src="~/images/@item.ProductImage" class="order-img rounded" style="width: 60px; height: 60px; object-fit: cover;" alt="@item.ProductName" onerror="this.src='https://via.placeholder.com/60'">
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                        @item.Quantity
+                                    </span>
+                                </div>
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">@item.ProductName</h6>
+                                    <small class="text-muted">@String.Format("{0:#,##0} ₫", item.Price)</small>
+                                </div>
+                                <div class="text-success fw-bold">
+                                    @String.Format("{0:#,##0} ₫", item.Total)
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Tạm tính</span>
+                            <span class="fw-bold">@String.Format("{0:#,##0} ₫", ViewBag.TotalAmount)</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Vận chuyển</span>
+                            <span class="text-success">Miễn phí</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-4 align-items-center">
+                            <span class="h5 fw-bold mb-0">Tổng cộng</span>
+                            <span class="h4 fw-bold text-danger mb-0">@String.Format("{0:#,##0} ₫", ViewBag.TotalAmount)</span>
                         </div>
                     </div>
 
-                    <div class="order-item">
-                        <img src="https://images.unsplash.com/photo-1627993073950-c6e2671ae65e?q=80&w=200" class="order-img" alt="Sp">
-                        <div>
-                            <h6 class="mb-1 fw-bold">Set Dương Xỉ Rừng</h6>
-                            <small class="text-muted">Số lượng: 2</small>
-                            <div class="text-success fw-bold">240.000₫</div>
+                    <h5 class="fw-bold mb-3 fs-6">Phương thức thanh toán</h5>
+                    <div class="payment-option mb-2 border rounded p-2 bg-light">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment" id="cod" checked>
+                            <label class="form-check-label fw-bold" for="cod">Thanh toán khi nhận hàng (COD)</label>
                         </div>
                     </div>
-                </div>
 
-                <div class="border-top pt-3">
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Tạm tính</span>
-                        <span class="fw-bold">690.000₫</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Vận chuyển</span>
-                        <span class="text-success">Miễn phí</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-4">
-                        <span class="h5 fw-bold">Tổng cộng</span>
-                        <span class="h4 fw-bold text-success">690.000₫</span>
-                    </div>
-                </div>
+                    <button type="submit" class="btn-order w-100 mt-3">ĐẶT HÀNG NGAY</button>
 
-                <h5 class="fw-bold mb-3">Phương thức thanh toán</h5>
-                <div class="payment-option selected mb-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="payment" id="cod" checked>
-                        <label class="form-check-label fw-bold" for="cod">Thanh toán khi nhận hàng (COD)</label>
-                    </div>
+                    <a href="@Url.Action("Cart", "Cart")" class="d-block text-center mt-3 text-decoration-none text-muted">
+                        <i class="fa fa-arrow-left me-1"></i> Quay lại giỏ hàng
+                    </a>
                 </div>
-                <div class="payment-option mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="payment" id="bank">
-                        <label class="form-check-label fw-bold" for="bank">Chuyển khoản ngân hàng</label>
-                    </div>
-                </div>
-
-                <button class="btn-order">Đặt hàng ngay</button>
             </div>
         </div>
-    </div>
+    }
 </div>
-

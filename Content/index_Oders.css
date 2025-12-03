@@ -1,0 +1,81 @@
+﻿
+/* Tiêu đề */
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2e7d32; /* xanh lá đậm */
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #4caf50; /* line xanh lá */
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Bảng */
+table.table {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead.bg-primary {
+    background: #43a047 !important; /* Xanh lá đậm */
+}
+
+thead th {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+    tbody tr:hover {
+        background-color: #e8f5e9 !important; /* hover xanh nhạt */
+        cursor: pointer;
+    }
+
+/* Badge trạng thái */
+.badge {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+.badge-warning {
+    background-color: #ffb300 !important;
+}
+
+.badge-success {
+    background-color: #4caf50 !important;
+}
+
+.badge-danger {
+    background-color: #e53935 !important;
+    color: #fff;
+}
+
+/* Nút hành động */
+.btn-info {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+    transition: 0.2s;
+}
+
+    .btn-info:hover {
+        background-color: #1b5e20;
+        border-color: #1b5e20;
+    }
+
+.btn-danger {
+    transition: 0.2s;
+}
+
+    .btn-danger:hover {
+        background-color: #b71c1c;
+        border-color: #b71c1c;
+    }
+

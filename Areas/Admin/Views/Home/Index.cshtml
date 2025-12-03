@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/Content/Dashboard.css" />
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-gauge-high"></i> Tổng quan hệ thống
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <a href="@Url.Action("Index", "Products")" class="dashboard-card bg-green">
+            <i class="fa-solid fa-tree card-icon"></i>
+            <div class="card-count">@ViewBag.SoLuongSanPham</div>
+            <div class="card-label">Sản phẩm</div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="@Url.Action("Index", "Orders")" class="dashboard-card bg-yellow">
+            <i class="fa-solid fa-cart-shopping card-icon"></i>
+            <div class="card-count">@ViewBag.SoLuongDonHang</div>
+            <div class="card-label">Đơn hàng</div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="@Url.Action("Index", "KhachHangs")" class="dashboard-card bg-blue">
+            <i class="fa-solid fa-users card-icon"></i>
+            <div class="card-count">@ViewBag.SoLuongKhachHang</div>
+            <div class="card-label">Khách hàng</div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="@Url.Action("Index", "Categories")" class="dashboard-card bg-red">
+            <i class="fa-solid fa-layer-group card-icon"></i>
+            <div class="card-count">@ViewBag.SoLuongDanhMuc</div>
+            <div class="card-label">Danh mục</div>
+        </a>
+    </div>
+</div>
+
+<div class="card-box" style="margin-top:20px; text-align:center; padding:50px;">
+    <h3 class="text-primary">Chào mừng quay trở lại trang quản trị!</h3>
+    <p class="text-muted">Chọn một mục ở trên hoặc sử dụng menu bên trái để bắt đầu làm việc.</p>
+</div>

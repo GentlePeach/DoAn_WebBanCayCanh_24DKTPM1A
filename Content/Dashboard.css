@@ -1,0 +1,56 @@
+﻿
+.dashboard-card {
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+    margin-bottom: 25px;
+    display: block;
+    text-decoration: none;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Màu sắc cho từng thẻ */
+.bg-blue {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+}
+
+.bg-green {
+    background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+}
+
+.bg-yellow {
+    background: linear-gradient(45deg, #FFB64D, #ffcb80);
+}
+
+.bg-red {
+    background: linear-gradient(45deg, #FF5370, #ff869a);
+}
+
+.card-icon {
+    font-size: 40px;
+    opacity: 0.4;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.card-count {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card-label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+

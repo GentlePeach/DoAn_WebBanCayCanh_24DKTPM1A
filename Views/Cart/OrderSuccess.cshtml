@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Đặt hàng thành công";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+<div class="container text-center py-5">
+    <div class="mb-4">
+        <i class="fa fa-check-circle text-success" style="font-size: 80px;"></i>
+    </div>
+    <h2 class="fw-bold text-success">ĐẶT HÀNG THÀNH CÔNG!</h2>
+    <p class="lead mb-4">Cảm ơn bạn đã mua hàng tại Coi Garden. Chúng tôi sẽ liên hệ sớm nhất để xác nhận đơn hàng.</p>
+
+    <div class="d-flex justify-content-center gap-3">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success rounded-pill px-4">
+            <i class="fa fa-home me-2"></i> Về trang chủ
+        </a>
+        <a href="@Url.Action("Tera", "Products")" class="btn btn-success rounded-pill px-4">
+            <i class="fa fa-shopping-bag me-2"></i> Tiếp tục mua sắm
+        </a>
+    </div>
+
+
+</div>

@@ -1,0 +1,63 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Order
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/delete_Oders.css" rel="stylesheet" />
+}
+
+<h3 class="delete-title">
+    Xóa đơn hàng của khách: <span>@Model.CustomerName</span>
+</h3>
+
+<div class="delete-card">
+    <h4 class="order-title">Thông tin đơn hàng</h4>
+
+    <dl class="dl-horizontal delete-info">
+        <dt>Khách hàng:</dt>
+        <dd>@Model.CustomerName</dd>
+
+        <dt>Tổng tiền:</dt>
+        <dd>@string.Format("{0:0,0}", Model.TotalAmount) VNĐ</dd>
+
+        <dt>Trạng thái:</dt>
+        <dd>@Model.Status</dd>
+
+        <dt>Ngày tạo:</dt>
+        <dd>@Model.CreatedDate</dd>
+
+        <dt>SĐT:</dt>
+        <dd>@Model.CustomerPhone</dd>
+
+        <dt>Địa chỉ:</dt>
+        <dd>@Model.CustomerAddress</dd>
+
+        <dt>Email:</dt>
+        <dd>@Model.CustomerEmail</dd>
+
+        <dt>Ghi chú:</dt>
+        <dd>@Model.Note</dd>
+
+        <dt>Tài khoản đặt:</dt>
+        <dd>@Model.KhachHang?.HoTen</dd>
+    </dl>
+
+    <div class="delete-warning">
+        ⚠ Bạn có chắc chắn muốn <b>xóa vĩnh viễn</b> đơn hàng này?
+        <br />
+        Hành động này không thể hoàn tác.
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="delete-actions">
+            <input type="submit" value="Xóa ngay" class="btn-danger-green" />
+            <a href="@Url.Action("Index")" class="btn-cancel">Huỷ bỏ</a>
+        </div>
+    }
+</div>
+

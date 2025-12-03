@@ -1,0 +1,31 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Category
+@{
+    ViewBag.Title = "Xóa danh mục";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<div class="page-title text-danger">
+    <i class="fa-solid fa-trash"></i> Xóa danh mục
+</div>
+
+<div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Cảnh báo:</strong> Nếu xóa danh mục này, các sản phẩm thuộc danh mục này có thể bị lỗi hiển thị.
+</div>
+
+<div class="card-box" style="max-width: 600px; margin: 0 auto; text-align:center;">
+    <h3 class="text-primary">@Model.Name</h3>
+    <p class="text-muted">Alias: @Model.Alias</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="margin-top: 30px;">
+            <button type="submit" class="btn btn-danger btn-lg"><i class="fa-solid fa-trash"></i> Xác nhận xóa</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary btn-lg" style="margin-left:10px">Hủy bỏ</a>
+        </div>
+    }
+</div>

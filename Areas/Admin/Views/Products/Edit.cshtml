@@ -1,0 +1,133 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.Product
+
+@{
+    ViewBag.Title = "Cập nhật sản phẩm";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<div class="page-title">
+    <i class="fa-solid fa-pen-to-square"></i> Cập nhật sản phẩm: <strong>@Model.Name</strong>
+</div>
+
+<div class="card-box">
+    @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        @Html.HiddenFor(model => model.Image)
+
+        <div class="row">
+            <div class="col-md-7">
+                <h4 class="text-primary text-success" style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:20px;">
+                    Thông tin chung
+                </h4>
+
+                <div class="form-group">
+                    <label class="control-label">Tên sản phẩm</label>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Alias (Link SEO)</label>
+                    @Html.EditorFor(model => model.Alias, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Danh mục</label>
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Mô tả sản phẩm</label>
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = "6" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row" style="margin-top:20px; background:#f9f9f9; padding:10px; border-radius:5px;">
+                    <div class="col-md-4">
+                        <label>Ngày tạo</label>
+                        @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                    <div class="col-md-4">
+                        <label>Đã bán</label>
+                        @Html.EditorFor(model => model.DaBan, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                    <div class="col-md-4">
+                        <label>Lượt xem</label>
+                        @Html.EditorFor(model => model.LuotXem, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h4 class="text-primary text-success" style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:20px;">
+                    Thiết lập bán hàng
+                </h4>
+
+                <div class="form-group">
+                    <label class="control-label" style="display:block">Hình ảnh hiện tại</label>
+
+                    @if (!string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="~/images/@Model.Image" style="max-width:100%; height:auto; border-radius:5px; border:1px solid #ddd; margin-bottom:10px;" />
+                    }
+
+                    <label class="control-label" style="margin-top:10px">Chọn ảnh mới (Nếu muốn thay đổi)</label>
+                    <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Giá gốc</label>
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Giá khuyến mãi</label>
+                            @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Số lượng kho</label>
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Kích thước</label>
+                            @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group text-right" style="margin-top:20px">
+            <a href="@Url.Action("Index")" class="btn btn-warning">
+                <i class="fa-solid fa-arrow-left"></i> Quay lại
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-floppy-disk"></i> Lưu thay đổi
+            </button>
+        </div>
+    }
+</div>

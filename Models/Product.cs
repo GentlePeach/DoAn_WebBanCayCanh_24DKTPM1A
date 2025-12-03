@@ -11,7 +11,7 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +24,7 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
     
         public int Id { get; set; }
         public Nullable<int> CategoryId { get; set; }
-        public string Name { get; set; }
+        public string   Name { get; set; }
         public string Alias { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> PriceSale { get; set; }

@@ -1,0 +1,32 @@
+﻿@model DoAn_WebBanCayCanh_24DKTPM1A.Models.KhachHang
+@{
+    ViewBag.Title = "Xóa khách hàng";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/Admin_Products.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+}
+
+<div class="page-title text-danger">
+    <i class="fa-solid fa-trash"></i> Xóa khách hàng
+</div>
+
+<div class="alert alert-warning">
+    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Cảnh báo:</strong> Việc xóa khách hàng có thể ảnh hưởng đến các Đơn hàng cũ của họ. Hãy cân nhắc kỹ!
+</div>
+
+<div class="card-box">
+    <h3 class="text-primary">@Model.HoTen</h3>
+    <p><strong>Tài khoản:</strong> @Model.TaiKhoan</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy bỏ</a>
+        </div>
+    }
+</div>

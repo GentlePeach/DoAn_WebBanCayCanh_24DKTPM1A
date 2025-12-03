@@ -16,8 +16,10 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "DoAn_WebBanCayCanh_24DKTPM1A.Controllers" }
             );
         }
+
     }
 }

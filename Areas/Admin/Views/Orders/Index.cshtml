@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DoAn_WebBanCayCanh_24DKTPM1A.Models.Order>
+
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@section Styles {
+    <link href="~/Content/index_Oders.css" rel="stylesheet" />
+}
+<h2>Danh sách đơn hàng</h2> 
+<a href="@Url.Action("Create")" class="btn btn-success">Tạo đơn </a>
+<table class="table table-bordered table-hover">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th>Mã Đơn</th>
+            <th>Tên Khách Hàng</th>
+            <th>Ngày đặt</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>#@item.Id</td>
+
+                <td>
+                    @if (item.KhachHang != null)
+                    {
+                        @item.KhachHang.HoTen
+                    }
+                    else
+                    {
+                        <span>Khách vãng lai</span>
+                    }
+                </td>
+
+                <td>
+                    @if (item.CreatedDate != null)
+                    {
+                        @item.CreatedDate.Value.ToString("dd/MM/yyyy HH:mm")
+                    }
+                </td>
+
+                <td style="color:red; font-weight:bold">
+                    @string.Format("{0:0,0}", item.TotalAmount) VNĐ
+                </td>
+
+                <td>
+                    @if (item.Status == 1 || item.Status == 0 || item.Status == null)
+                    {
+                        <span class="badge badge-warning" style="background-color:orange; color:white; padding:5px">Chờ xử lý</span>
+                    }
+                    else if (item.Status == 2)
+                    {
+                        <span class="badge badge-success" style="background-color:green; color:white; padding:5px">Đã giao</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger" style="background-color:red; color:white; padding:5px">Đã hủy</span>
+                    }
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-success">Xem chi tiết</a>
+                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

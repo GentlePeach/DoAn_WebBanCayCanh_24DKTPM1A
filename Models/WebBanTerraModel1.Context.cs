@@ -31,5 +31,6 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<KhachHang> KhachHangs { get; set; }
     }
 }

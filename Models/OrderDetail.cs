@@ -11,7 +11,7 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class OrderDetail
     {
         public int Id { get; set; }
@@ -19,6 +19,8 @@ namespace DoAn_WebBanCayCanh_24DKTPM1A.Models
         public Nullable<int> ProductId { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<decimal> Total { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }

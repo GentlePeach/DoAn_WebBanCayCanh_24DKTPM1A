@@ -1,0 +1,81 @@
+﻿
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: 0;
+    border-right: 1px solid #dee2e6;
+    width: 260px; /* Rộng hơn chút cho thoáng */
+    background-color: #fff;
+    flex-shrink: 0;
+    position: sticky; /* Menu trượt theo khi cuộn */
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar-heading {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #28a745;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+    background: #fff;
+}
+
+.list-group-item {
+    border: none;
+    padding: 16px 25px;
+    font-weight: 600;
+    color: #6c757d;
+    transition: all 0.3s;
+}
+
+    .list-group-item:hover {
+        background-color: #e8f5e9;
+        color: #28a745;
+        transform: translateX(5px);
+    }
+
+    .list-group-item.active {
+        background-color: #28a745;
+        color: #fff;
+        border-color: #28a745;
+        box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+    }
+
+/* CẤU TRÚC FLEX ĐỂ ĐẨY FOOTER XUỐNG ĐÁY */
+#page-content-wrapper {
+    width: 100%;
+    background-color: #f4f6f9;
+    display: flex; /* Quan trọng */
+    flex-direction: column; /* Quan trọng */
+    min-height: 100vh; /* Quan trọng */
+}
+
+.main-content {
+    flex: 1; /* Tự động giãn ra để đẩy footer xuống */
+    padding: 30px;
+}
+
+/* Footer đẹp hơn */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #e9ecef;
+    padding: 20px 30px;
+    margin-top: auto; /* Đảm bảo dính đáy */
+}
+
+

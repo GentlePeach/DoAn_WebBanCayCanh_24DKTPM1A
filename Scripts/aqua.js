@@ -1,13 +1,11 @@
-// 1. Khai báo biến toàn cục
+
 var currentCategoryId = null;
 var currentMinPrice = null;
 var currentMaxPrice = null;
 
-// 2. Hàm lọc Danh mục (Category)
+//  Hàm lọc Danh mục (Category)
 function filterCategory(element, id) {
     console.log("Đã bấm danh mục ID: " + id); // Kiểm tra xem hàm có chạy không
-
-    // Đổi màu active
     $('.list-group-item').removeClass('active');
     $(element).addClass('active');
 
@@ -15,7 +13,7 @@ function filterCategory(element, id) {
     loadProducts();
 }
 
-// 3. Hàm lọc Giá (Price)
+// Hàm lọc Giá (Price)
 function filterPrice(element) {
     console.log("Đã tích vào ô giá: " + $(element).val()); // Kiểm tra
 
@@ -38,7 +36,7 @@ function filterPrice(element) {
     loadProducts();
 }
 
-// 4. HÀM AJAX GỬI VỀ SERVER
+// HÀM AJAX GỬI VỀ SERVER
 function loadProducts() {
     // In ra console để kiểm tra dữ liệu gửi đi
     console.log("Đang gửi Ajax với dữ liệu:", {
@@ -50,7 +48,7 @@ function loadProducts() {
     $('#product-list-container').css('opacity', '0.5');
 
     $.ajax({
-        url: '/Home/Aqua', // Đường dẫn cứng, đảm bảo chính xác
+        url: aquaUrl, // Đường dẫn cứng, đảm bảo chính xác
         type: 'GET',
         data: {
             categoryId: currentCategoryId,

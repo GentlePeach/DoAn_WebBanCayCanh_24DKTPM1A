@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_TeraLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+<div class="container py-5" style="max-width: 500px;">
+    <h3 class="text-center fw-bold text-success mb-4">ĐĂNG NHẬP</h3>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form action="/Account/Login" method="post" class="shadow p-4 rounded bg-white">
+        <div class="mb-3">
+            <label>Tài khoản</label>
+            <input type="text" name="user" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Mật khẩu</label>
+            <input type="password" name="password" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success w-100 rounded-pill">Đăng Nhập</button>
+
+        <div class="text-center mt-3">
+            Chưa có tài khoản? <a href="@Url.Action("Register", "Account")">Đăng ký ngay</a>
+        </div>
+    </form>
+</div>
+
